@@ -1,0 +1,87 @@
+body{
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+
+    border: 1px black solid;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: 150px 600px 150px;
+    grid-template-rows: 100px auto 100px;
+    background-color: darkkhaki;
+}
+#b0{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border: black solid 1px;
+    grid-column: 1/4;
+}
+h1{
+    color: brown;
+    text-align: center;
+
+}
+.box{
+    grid-column: 1/4;
+}
+#b1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column: 2/3;
+}
+#instruction{
+
+    padding: 5px ;
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: black 1px solid;
+    color: #140c47;
+}
+#btn{
+    width: 150px;
+    height: 35px;
+    font-size: 21px;
+    display: inline-block;
+    cursor: pointer;
+}
+#btnReg{
+    width: 150px;
+    height: 35px;
+    font-size: 21px;
+    display: inline-block;
+    margin-left: 300px;
+    cursor: pointer;
+}
+#input{
+    display: inline-block;
+
+}
+#formSp1{
+    font-size: 21PX;
+    color: brown;
+    padding: 5PX;
+
+}
+#userSname{
+    display: inline;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 35px;
+    font-size: 23px;
+}
+#userPassword{
+    width: 150px;
+    height: 35px;
+    font-size: 21px;
+    color: #140c47;
+    margin: 10px;
+}
