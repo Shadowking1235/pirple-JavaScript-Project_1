@@ -1,4 +1,7 @@
 //alert();
+let getValueUser;
+let getValueUserPass;
+
 function createRegistrationPage() {
     var cc = document.getElementById("b1");
     var para = document.createElement("P");
@@ -62,6 +65,7 @@ function createForm(parentElement){
     i.setAttribute("type","text");
     i.setAttribute("name","username");
     i.setAttribute("id","userSname");
+    i.setAttribute("value","no");
 
     newd1.appendChild(i);
 
@@ -71,15 +75,16 @@ function createForm(parentElement){
     var pass = document.createElement("input");
     pass.setAttribute("type","text");
     pass.setAttribute("password","password");
-    pass.setAttribute("id","userSname");
+    pass.setAttribute("id","pass");
+    pass.setAttribute("name","Name");
 
     newd2.appendChild(pass);
 
     var newd3 = document.createElement("div");
     newd3.setAttribute("id","div3");
 
-    var s = document.createElement("input");
-    s.setAttribute("type","submit");
+    var s = document.createElement("BUTTON");
+    s.setAttribute("type","BUTTON");
     s.setAttribute("value","Submit");
     s.setAttribute("id","userPassword");
 
@@ -88,12 +93,39 @@ function createForm(parentElement){
     f.appendChild(newd1);f.appendChild(newd2);f.appendChild(newd3);
 
     //f.appendChild(pass);
-    f.appendChild(s);
-    temp.appendChild(f)
+    //temp.appendChild(s);
+    temp.appendChild(f);
+    var btnLabel = document.getElementById("userPassword");
+    btnLabel.innerText = "Submit";
+
+
+
+    let gv = document.getElementById("userPassword");
+
+    gv.addEventListener("click",getValueS);
+
 
 }
 
+function getValueS(){
+    var user = document.getElementById("userSname").value;
+    getValueUser = user;
 
+    var userPass = document.getElementById("pass").value;
+    getValueUserPass = userPass;
+
+    if(user === "" || getValueUserPass === "" || user === undefined || getValueUserPass === undefined){
+        alert("blank");
+        return;
+    }
+    if (user.length<=3 || getValueUserPass.length <=6){
+        alert("Short");
+        return;
+    }
+
+    alert(getValueUser + " " + getValueUserPass);
+
+}
 
 
 createRegistrationPage();

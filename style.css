@@ -69,7 +69,7 @@ h1{
     padding: 5PX;
 
 }
-#userSname{
+#userSname, #pass{
     display: inline;
     margin-left: 5px;
     margin-top: 10px;
