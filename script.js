@@ -151,6 +151,14 @@ function getValueS(){
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
     //to reset data
+
+    if (firstName === "clear_key"){
+        localStorage.removeItem('FirstName');
+        alert("clear key");
+        
+
+        return;
+    }
     if (firstName === "clear_data"){
         mainArray = [];
         localStorage.setItem("FirstName",  JSON.stringify(mainArray));
@@ -171,8 +179,22 @@ function getValueS(){
 
     var tt = new   SavingObject(firstName,lastName,user,userPass);
 
-    var storedData = localStorage.getItem('FirstName');
-    if (storedData) {
+    //var storedData = localStorage.getItem('FirstName');
+    if("FirstName" in localStorage){
+        alert('yes');
+        var storedData = localStorage.getItem('FirstName');
+        mainArray = JSON.parse(storedData);
+        if (checkDuplicateUserName(mainArray,user) === false){
+            return;
+        }
+        mainArray.push(tt);
+        localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+    } else {
+        alert('no');
+        mainArray.push(tt);
+        localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+    }
+   /* if (storedData) {
         mainArray = JSON.parse(storedData);
        if (checkDuplicateUserName(mainArray,user) === false){
            return;
@@ -181,22 +203,22 @@ function getValueS(){
         localStorage.setItem("FirstName",  JSON.stringify(mainArray));
     }else{
         localStorage.setItem("FirstName",  JSON.stringify(mainArray));
-    }
+    }*/
     //localStorage.setItem('FirstName', JSON.stringify(mainArray));
 
     //var getFirstName = localStorage.getItem('FirstName');
     var storedNames = JSON.parse(localStorage.getItem("FirstName"));
-    alert ('retrievedObject: ' + storedNames[0].userName +""+storedNames[0].lastName);
+   // alert ('retrievedObject: ' + storedNames[0].userName +""+storedNames[0].lastName);
     console.log(storedNames);
     var ff = document.getElementById("regDetail");
     ff.innerText = "";
     removeElement("userInputDiv");
     removeElement("userInputDiv1");
     removeElement("frm");
-    //recreate main page
+    //recreate main page after new registration
     createRegistrationPage();
 }
-
+// create main  object for saving all users
 function SavingObject(firstName,lastName,userName,password){
     this.firstName = firstName,
     this.lastName = lastName,
@@ -209,6 +231,7 @@ function SavingObject(firstName,lastName,userName,password){
             return this.lastName;
         }
 }
+//check function for stopping duplicate user name
 function checkDuplicateUserName(arr,name){
     for (var i = 0;i<arr.length;i++){
         if(arr.length == 0){
