@@ -63,7 +63,7 @@ h1{
     display: inline-block;
 
 }
-#formSp1{
+#formSp1Label{
     font-size: 21PX;
     color: brown;
     padding: 5PX;
@@ -83,5 +83,18 @@ h1{
     height: 35px;
     font-size: 21px;
     color: #140c47;
+    margin: 10px;
+}
+#firstName,#lastName{
+    width: 300px;
+    height: 35px;
+    font-size: 21px;
+    color: brown;
+    margin: 10px;
+}
+#firstNameLabel,#formSp2Label{
+    font-size: 21PX;
+    color: brown;
+    padding: 5PX;
     margin: 10px;
 }

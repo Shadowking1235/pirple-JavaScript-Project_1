@@ -1,7 +1,14 @@
-//alert();
+/*
+* first name, last name, email, and password (all strings,
+* but passwords should not be displayed in plain text inputs
+* This application should store its data using localStorage only
+*/
+
 let getValueUser;
 let getValueUserPass;
+let mainArray = [];
 
+//Create Main Page For To Do List
 function createRegistrationPage() {
     var cc = document.getElementById("b1");
     var para = document.createElement("P");
@@ -29,6 +36,7 @@ function createRegistrationPage() {
     createRegForm.addEventListener("click",createFrm);
 
 }
+//create form for registration
 function createFrm() {
      removeElement("instruction");
      removeElement("btn");
@@ -39,12 +47,18 @@ function createFrm() {
     addElement("b1","P","regDetail","frm",string);
     //addElement("b1","form","formDetail","frm","");
     //addElement("formDetail","input","input","frm");
+    let label1 = "First Name ::";
+    let label2 = "Last Name ::";
+    addElementAndItsChildEle("b1","div","userInputDiv","box01","firstName",label1);
+    addElementAndItsChildEle("b1","div","userInputDiv1","box01","lastName",label2);
     createForm("b1");
 }
+//remove element function
 function removeElement(elementId){
      var elemnt = document.getElementById(elementId);
      elemnt.parentNode.removeChild(elemnt);
 }
+//create element function
 function addElement(parentElement,newElementTagName,newId,newClass,string){
     var temp = document.getElementById(parentElement);
     var newElement = document.createElement(newElementTagName);
@@ -54,13 +68,32 @@ function addElement(parentElement,newElementTagName,newId,newClass,string){
     temp.appendChild(newElement);
 
 }
+//create div and it`s child inside parentElement
+function addElementAndItsChildEle(parentElement,newElementTagName,newId,newClass,newIdOFChild,label){
+    var temp = document.getElementById(parentElement);
+    var newDiv = document.createElement("DIV");
+    newDiv.innerHTML = "<span id='firstNameLabel'>"+label + "&nbsp" + "</span>";
+    newDiv.setAttribute("class",newClass);
+    newDiv.setAttribute("id",newId);
+    temp.appendChild(newDiv);
+
+    var firstName = document.createElement("input");
+    firstName.setAttribute("type","text");
+    firstName.setAttribute("value","");
+    firstName.setAttribute("id",newIdOFChild);//"firstName"
+    newDiv.appendChild(firstName);
+
+}
+//////////////////////
+//create form element for user name and password
 function createForm(parentElement){
     var temp = document.getElementById(parentElement);
     var f = document.createElement("form");
+    f.setAttribute("id","frm");
 
     var newd1 = document.createElement("div");
     newd1.setAttribute("id","div1");
-    newd1.innerHTML = "<span id='formSp1'>" + "User Name::" + "</span>";
+    newd1.innerHTML = "<span id='formSp1Label'>" + "User Name ::" + "&nbsp;" + "&nbsp;" + "&nbsp;" + "&nbsp;"  + "</span>";
     var i = document.createElement("input");
     i.setAttribute("type","text");
     i.setAttribute("name","username");
@@ -71,7 +104,7 @@ function createForm(parentElement){
 
     var newd2 = document.createElement("div");
     newd2.setAttribute("id","div2");
-    newd2.innerHTML = "<span id='formSp1'>" + "Password::" + "</span>";
+    newd2.innerHTML = "<span id='formSp2Label'>" + "Password ::   "+"&nbsp;" + "&nbsp;"  + "</span>";
     var pass = document.createElement("input");
     pass.setAttribute("type","text");
     pass.setAttribute("password","password");
@@ -106,13 +139,24 @@ function createForm(parentElement){
 
 
 }
-
+//get all value fill in the form to save
 function getValueS(){
     var user = document.getElementById("userSname").value;
     getValueUser = user;
 
+
     var userPass = document.getElementById("pass").value;
     getValueUserPass = userPass;
+
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    //to reset data
+    if (firstName === "clear_data"){
+        mainArray = [];
+        localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+        alert("clear data");
+        return;
+    }
 
     if(user === "" || getValueUserPass === "" || user === undefined || getValueUserPass === undefined){
         alert("blank");
@@ -123,9 +167,59 @@ function getValueS(){
         return;
     }
 
-    alert(getValueUser + " " + getValueUserPass);
+    alert(getValueUser + " " + getValueUserPass + " "+firstName +" "+lastName);
 
+    var tt = new   SavingObject(firstName,lastName,user,userPass);
+
+    var storedData = localStorage.getItem('FirstName');
+    if (storedData) {
+        mainArray = JSON.parse(storedData);
+       if (checkDuplicateUserName(mainArray,user) === false){
+           return;
+       }
+        mainArray.push(tt);
+        localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+    }else{
+        localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+    }
+    //localStorage.setItem('FirstName', JSON.stringify(mainArray));
+
+    //var getFirstName = localStorage.getItem('FirstName');
+    var storedNames = JSON.parse(localStorage.getItem("FirstName"));
+    alert ('retrievedObject: ' + storedNames[0].userName +""+storedNames[0].lastName);
+    console.log(storedNames);
+    var ff = document.getElementById("regDetail");
+    ff.innerText = "";
+    removeElement("userInputDiv");
+    removeElement("userInputDiv1");
+    removeElement("frm");
+    //recreate main page
+    createRegistrationPage();
 }
 
+function SavingObject(firstName,lastName,userName,password){
+    this.firstName = firstName,
+    this.lastName = lastName,
+    this.userName = userName,
+    this.password = password,
+        this.fn = function () {
+            return this.firstName;
+        },
+        this.ln = function () {
+            return this.lastName;
+        }
+}
+function checkDuplicateUserName(arr,name){
+    for (var i = 0;i<arr.length;i++){
+        if(arr.length == 0){
+            alert("no data");
+            return ;
+        }
+        if(arr[i].userName===name){
+            alert(name + "Duplicate user, user exist found");
+            return false;
+        }
+    }
+}
 
 createRegistrationPage();
