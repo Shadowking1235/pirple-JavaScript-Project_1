@@ -303,6 +303,7 @@ function createDashBoardCheck(){
                 removeElement("userLn");removeElement("userLnPass");
                 removeElement("btnToCheckUser");removeElement("logInUserName");
                 removeElement("logInUserNameLbl");
+                createDashBoard(username,mainArray[i].firstName,mainArray[i].lastName);
                 break;
             }else  {
                  if(i===mainArray.length-1){
@@ -322,8 +323,24 @@ function createDashBoardCheck(){
 
 }
 //dash board dialog box
-function createDashBoard() {
-
+function createDashBoard(userN,fName,lName) {
+    addElement("b1","div","dashboard","box03","");
+    let dash = document.getElementById("dashboard");
+    dash.innerHTML = "<span id='welcome'>"+"Welcome "+ fName +" "+ lName +"</span>";
+    if (listArray.length === 0){
+        alert("no list");
+        addElement("b1","div","dashboardNoList","box03","");
+        let dashnolist = document.getElementById("dashboardNoList");
+        dashnolist.innerHTML = "<span id='noList'>"+"You Don`t have list, "+ fName +" "+ lName +"</span>";
+    }else{
+        alert("u have list");
+    }
+    addElement("b1","div","createList","box04","");
+    let bb1 = document.getElementById("createList");
+    let createBtnForList =  document.createElement("button");
+    createBtnForList.setAttribute("id","createlistbtn");
+    createBtnForList.innerText ="Create List";
+    bb1.appendChild(createBtnForList);
 }
 
 
