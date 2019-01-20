@@ -2,11 +2,13 @@
 * first name, last name, email, and password (all strings,
 * but passwords should not be displayed in plain text inputs
 * This application should store its data using localStorage only
+* The dashboard should list (in chronological order), all of the "To-Do Lists"
 */
 
 let getValueUser;
 let getValueUserPass;
 let mainArray = [];
+let listArray = [];
 
 //Create Main Page For To Do List
 function createRegistrationPage() {
@@ -34,6 +36,9 @@ function createRegistrationPage() {
 
     var createRegForm = document.getElementById("btnReg");
     createRegForm.addEventListener("click",createFrm);
+
+   var dash = document.getElementById("btn");
+   dash.addEventListener("click",createLogInUserAnsPassForDashBoard);
 
 }
 //create form for registration
@@ -155,7 +160,7 @@ function getValueS(){
     if (firstName === "clear_key"){
         localStorage.removeItem('FirstName');
         alert("clear key");
-        
+
 
         return;
     }
@@ -208,7 +213,7 @@ function getValueS(){
 
     //var getFirstName = localStorage.getItem('FirstName');
     var storedNames = JSON.parse(localStorage.getItem("FirstName"));
-   // alert ('retrievedObject: ' + storedNames[0].userName +""+storedNames[0].lastName);
+    // alert ('retrievedObject: ' + storedNames[0].userName +""+storedNames[0].lastName);
     console.log(storedNames);
     var ff = document.getElementById("regDetail");
     ff.innerText = "";
@@ -217,6 +222,7 @@ function getValueS(){
     removeElement("frm");
     //recreate main page after new registration
     createRegistrationPage();
+
 }
 // create main  object for saving all users
 function SavingObject(firstName,lastName,userName,password){
@@ -245,4 +251,81 @@ function checkDuplicateUserName(arr,name){
     }
 }
 
+function createLogInUserAnsPassForDashBoard(){
+    //alert();
+    removeElement("btn");
+    removeElement("btnReg");
+    var ff = document.getElementById("instruction");
+    ff.innerText = "";
+    ff.style.border = "none";
+
+    addElement("b1","div","d1","box02","");
+
+    var lbl = document.getElementById("d1");
+    lbl.innerHTML = "<span id='logInUserName'>"+"User Name"+"</span>";
+    var user = document.createElement("input");
+    user.setAttribute("id","userLn");
+    user.setAttribute("value","");
+    lbl.appendChild(user);
+
+    addElement("b1","div","d11","box02","");
+
+    var lbl1 = document.getElementById("d11");
+    lbl1.innerHTML = "<span id='logInUserNameLbl'>"+"User Password"+"</span>";
+    var userPass = document.createElement("input");
+    userPass.setAttribute("id","userLnPass");
+    userPass.setAttribute("value","");
+    lbl1.appendChild(userPass);
+
+    addElement("b1","div","d111","box02","");
+
+    var temp = document.getElementById("d111");
+    var btnToCheckUserPass = document.createElement("BUTTON");
+    btnToCheckUserPass.setAttribute("id","btnToCheckUser");
+    btnToCheckUserPass.innerText = "Press";
+    temp.appendChild(btnToCheckUserPass);
+
+    btnToCheckUserPass.addEventListener("click",createDashBoardCheck);
+
+}
+
+function createDashBoardCheck(){
+    //alert();
+    let username = document.getElementById("userLn").value;
+    let userpassword = document.getElementById("userLnPass").value;
+    if("FirstName" in localStorage){
+        alert('yes');
+        var storedData = localStorage.getItem('FirstName');
+        mainArray = JSON.parse(storedData);
+        for(let i = 0;i<mainArray.length;i++){
+            if (mainArray[i].userName === username && mainArray[i].password === userpassword){
+                alert("found user " + mainArray[i].userName + " "+username);
+                removeElement("userLn");removeElement("userLnPass");
+                removeElement("btnToCheckUser");removeElement("logInUserName");
+                removeElement("logInUserNameLbl");
+                break;
+            }else  {
+                 if(i===mainArray.length-1){
+                     alert("User Name or password is wrong");
+                 }
+            }
+
+        }
+
+        //mainArray.push(tt);
+        //localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+    } else {
+        alert('no ');
+        // mainArray.push(tt);
+        //localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+    }
+
+}
+//dash board dialog box
+function createDashBoard() {
+
+}
+
+
+//final function run
 createRegistrationPage();

@@ -44,7 +44,7 @@ h1{
     border: black 1px solid;
     color: #140c47;
 }
-#btn{
+#btn,#btnToCheckUser{
     width: 150px;
     height: 35px;
     font-size: 21px;
@@ -85,16 +85,22 @@ h1{
     color: #140c47;
     margin: 10px;
 }
-#firstName,#lastName{
+#firstName,#lastName,#userLn,#userLnPass{
     width: 300px;
     height: 35px;
     font-size: 21px;
     color: brown;
     margin: 10px;
 }
-#firstNameLabel,#formSp2Label{
+#firstNameLabel,#formSp2Label,#logInUserName,#logInUserNameLbl{
     font-size: 21PX;
     color: brown;
     padding: 5PX;
     margin: 10px;
+}
+#d1{
+    //background-color: black;
+    //width: 500px;
+    //height: 200px;
+    //top: 0px;
 }
