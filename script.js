@@ -360,6 +360,10 @@ function listView() {
     add.setAttribute("id","addTaskBtn");
     tt.appendChild(add);
 
+    let remove  = document.createElement("button");
+    remove.setAttribute("id","removeTaskBtn");
+    tt.appendChild(remove);
+
 
     let ul = document.createElement("ul");
     ul.setAttribute("id","ul");
@@ -368,6 +372,9 @@ function listView() {
 
     let addListBtn = document.getElementById("addTaskBtn");
     addListBtn.innerText = "Add Item";
+    let removeListBtn = document.getElementById("removeTaskBtn");
+    removeListBtn.innerText = "Remove Item";
+
     addListBtn.addEventListener("click",makeList);
 
 
@@ -380,11 +387,12 @@ function createList(parentElement){
     let tt = document.getElementById(parentElement);
     let lli = document.createElement("li");
     lli.setAttribute("class","lis");
-    lli.innerText = "item";
+    let addthing = prompt("Enter Item :" );
+    lli.innerText = addthing;
+    listArray.push(lli.innerText);
     //lli.style.fontSize = "28px";
     tt.appendChild(lli);
 }
-
 
 //final function run
 createRegistrationPage();
