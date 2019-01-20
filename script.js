@@ -9,6 +9,7 @@ let getValueUser;
 let getValueUserPass;
 let mainArray = [];
 let listArray = [];
+let listD = 0;
 
 //Create Main Page For To Do List
 function createRegistrationPage() {
@@ -341,6 +342,47 @@ function createDashBoard(userN,fName,lName) {
     createBtnForList.setAttribute("id","createlistbtn");
     createBtnForList.innerText ="Create List";
     bb1.appendChild(createBtnForList);
+    
+    let tempBtnCreateList = document.getElementById("createlistbtn");
+    tempBtnCreateList.addEventListener("click",listView);
+}
+function listView() {
+    //alert();
+    if (listD===1){
+        alert("exist");
+        return;
+    }
+    addElement("b1","div","newList","box04","");
+    let tt = document.getElementById("newList");
+    tt.style.backgroundColor = "black";
+
+    let add  = document.createElement("button");
+    add.setAttribute("id","addTaskBtn");
+    tt.appendChild(add);
+
+
+    let ul = document.createElement("ul");
+    ul.setAttribute("id","ul");
+    tt.appendChild(ul);
+    //createList("ul");
+
+    let addListBtn = document.getElementById("addTaskBtn");
+    addListBtn.innerText = "Add Item";
+    addListBtn.addEventListener("click",makeList);
+
+
+    listD = 1;
+}
+function makeList(){
+    createList("ul");
+}
+function createList(parentElement){
+    let tt = document.getElementById(parentElement);
+    let lli = document.createElement("li");
+    lli.setAttribute("class","lis");
+    lli.innerText = "item";
+    //lli.style.fontSize = "28px";
+    tt.appendChild(lli);
 }
 
 

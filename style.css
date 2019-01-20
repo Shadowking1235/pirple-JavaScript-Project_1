@@ -118,9 +118,19 @@ h1{
     padding: 10px;
     margin-top: 10px;
 }
-#createlistbtn{
-    margin-top: 10px;
+#createlistbtn,#addTaskBtn{
+    margin: 10px;
     width: 150px;
     height: 35px;
     font-size: 21px;
  }
+#newList{
+    width: 500px;
+    height: 550px;
+    background-color: black;
+}
+.lis{
+    color: aliceblue;
+    font-size: 27px;
+    margin: 5px;
+}
