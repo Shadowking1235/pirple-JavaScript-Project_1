@@ -7,9 +7,17 @@
 
 let getValueUser;
 let getValueUserPass;
+//object elements in the array for all users having personal detail in each object element
 let mainArray = [];
+//object elements in the array for all user having lists detail in attray in object as each element
 let listArray = [];
+let listArray1 = [];
 let listD = 0;
+let listCountId = 0;
+//lists of individual user in array
+let listArrayObject = [];
+
+let myUser;
 
 //Create Main Page For To Do List
 function createRegistrationPage() {
@@ -301,6 +309,7 @@ function createDashBoardCheck(){
         for(let i = 0;i<mainArray.length;i++){
             if (mainArray[i].userName === username && mainArray[i].password === userpassword){
                 alert("found user " + mainArray[i].userName + " "+username);
+                myUser = username;
                 removeElement("userLn");removeElement("userLnPass");
                 removeElement("btnToCheckUser");removeElement("logInUserName");
                 removeElement("logInUserNameLbl");
@@ -375,10 +384,37 @@ function listView() {
     let removeListBtn = document.getElementById("removeTaskBtn");
     removeListBtn.innerText = "Remove Item";
 
+    addElement("b1","div","saveList","box04","");
+    let tt1 = document.getElementById("saveList");
+    // save list button
+    let save  = document.createElement("button");
+    save.setAttribute("id","saveTaskBtn");
+    tt1.appendChild(save);
+    save.innerText = "Save List";
+
     addListBtn.addEventListener("click",makeList);
 
+    removeListBtn.addEventListener("click",removeItemFromList);
+
+    let saveBtn = document.getElementById("saveTaskBtn");
+    saveBtn.addEventListener("click",saveListInObject);
 
     listD = 1;
+}
+function removeItemFromList() {
+    let removeTemp = document.getElementById("ul");
+    console.log(removeTemp);
+    let tt =  removeTemp.getElementsByClassName("lis");
+
+    let total = tt.length-1;
+    if (total <0){
+        return;
+    }
+    tt[total].remove();
+    console.log(tt);
+    //let total = removeTemp.length-1;
+    //let idTemp = "list"+ total-- ;
+    //removeElement(idTemp);
 }
 function makeList(){
     createList("ul");
@@ -387,12 +423,46 @@ function createList(parentElement){
     let tt = document.getElementById(parentElement);
     let lli = document.createElement("li");
     lli.setAttribute("class","lis");
+    let idTmp = "list"+(listCountId++);
+    lli.setAttribute("id",idTmp);
     let addthing = prompt("Enter Item :" );
+    if (addthing === null){
+        return;
+    }
     lli.innerText = addthing;
     listArray.push(lli.innerText);
     //lli.style.fontSize = "28px";
     tt.appendChild(lli);
-}
 
+
+}
+function saveListInObject(){
+   // alert();
+    let removeTemp = document.getElementById("ul");
+
+    let tt =  removeTemp.getElementsByClassName("lis");
+    for (let i=0;i<tt.length;i++){
+        let tmpId = "list"+i;
+       let tp = document.getElementById(tmpId);
+        listArray1.push(tp.innerText);
+        //console.log(tp.innerText);
+    }
+       console.log(listArray1);
+
+    let newName = prompt("Name of the New List :");
+    // let username = document.getElementById("userLn").value;
+    //object lst created with all details of users
+    let lst = new ListObject(myUser,newName,listArray);
+    listArrayObject.push(lst);
+    console.log(lst.user +" " +lst.name);
+
+}
+//object created for user having lists
+function ListObject(user,name,listArr) {
+    this.user = user,
+    this.name = name,
+    this.listArr = listArr
+
+}
 //final function run
 createRegistrationPage();
