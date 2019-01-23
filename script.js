@@ -412,13 +412,22 @@ function removeItemFromList() {
     }
     tt[total].remove();
     console.log(tt);
-    //let total = removeTemp.length-1;
-    //let idTemp = "list"+ total-- ;
-    //removeElement(idTemp);
+   listArray1.pop();
+  /* listArray1 = [];
+   for (let i=0;i<tt.length;i++){
+       let listId = "list"+i;
+       let listVar = document.getElementById(listId);
+       console.log("listVar  "+listId + " rrr "+ listVar.innerText);
+
+       listArray1.push(listVar.innerText);
+   }*/
+
+
 }
 function makeList(){
     createList("ul");
 }
+//creating list on page
 function createList(parentElement){
     let tt = document.getElementById(parentElement);
     let lli = document.createElement("li");
@@ -434,10 +443,14 @@ function createList(parentElement){
     //lli.style.fontSize = "28px";
     tt.appendChild(lli);
 
-
+    //listArray1 = [];
+    listArray1.push(lli.innerText);
+    console.log(listArray1);
 }
+
 function saveListInObject(){
    // alert();
+ /*  listArray1 = [];
     let removeTemp = document.getElementById("ul");
 
     let tt =  removeTemp.getElementsByClassName("lis");
@@ -446,15 +459,16 @@ function saveListInObject(){
        let tp = document.getElementById(tmpId);
         listArray1.push(tp.innerText);
         //console.log(tp.innerText);
-    }
-       console.log(listArray1);
+    }*/
+       console.log("single list"+listArray1);
 
     let newName = prompt("Name of the New List :");
     // let username = document.getElementById("userLn").value;
     //object lst created with all details of users
-    let lst = new ListObject(myUser,newName,listArray);
+    let lst = new ListObject(myUser,newName,listArray1);
     listArrayObject.push(lst);
-    console.log(lst.user +" " +lst.name);
+    console.log(lst.user +" " + lst.name);
+    console.log(lst.listArr);
 
 }
 //object created for user having lists

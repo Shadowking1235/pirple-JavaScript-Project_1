@@ -25,7 +25,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="621">
               <caret line="122" column="14" selection-start-line="122" selection-start-column="14" selection-end-line="122" selection-end-column="14" />
             </state>
           </provider>
@@ -34,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="449" column="31" lean-forward="true" selection-start-line="449" selection-start-column="31" selection-end-line="449" selection-end-column="31" />
+            <state relative-caret-position="607">
+              <caret line="472" column="1" lean-forward="true" selection-start-line="472" selection-start-column="1" selection-end-line="472" selection-end-column="1" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#36#42#0" expanded="true" />
@@ -74,9 +74,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="95" />
-    <option name="y" value="75" />
-    <option name="width" value="1389" />
+    <option name="x" value="88" />
+    <option name="y" value="41" />
+    <option name="width" value="1112" />
     <option name="height" value="850" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -84,20 +84,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Project_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_1" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -136,15 +123,18 @@
       <workItem from="1547936144278" duration="1763000" />
       <workItem from="1547939575548" duration="18077000" />
       <workItem from="1547969288124" duration="542000" />
-      <workItem from="1548055922523" duration="9580000" />
+      <workItem from="1548055922523" duration="10174000" />
+      <workItem from="1548145208638" duration="353000" />
+      <workItem from="1548149155530" duration="3479000" />
+      <workItem from="1548228553854" duration="6886000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91843000" />
+    <option name="totallyTimeSpent" value="103155000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="95" y="75" width="1389" height="850" extended-state="0" />
+    <frame x="88" y="41" width="1112" height="850" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.094004445" />
@@ -205,15 +195,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="621">
           <caret line="122" column="14" selection-start-line="122" selection-start-column="14" selection-end-line="122" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="449" column="31" lean-forward="true" selection-start-line="449" selection-start-column="31" selection-end-line="449" selection-end-column="31" />
+        <state relative-caret-position="607">
+          <caret line="472" column="1" lean-forward="true" selection-start-line="472" selection-start-column="1" selection-end-line="472" selection-end-column="1" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#36#42#0" expanded="true" />
