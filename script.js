@@ -12,12 +12,16 @@ let mainArray = [];
 //object elements in the array for all user having lists detail in attray in object as each element
 let listArray = [];
 let listArray1 = [];
+let listArrayInTwinPair = [];
 let listD = 0;
 let listCountId = 0;
+let checkCountId = 0;
 //lists of individual user in array
 let listArrayObject = [];
 
 let myUser;
+
+let createListNum = 0;
 
 //Create Main Page For To Do List
 function createRegistrationPage() {
@@ -413,6 +417,7 @@ function removeItemFromList() {
     tt[total].remove();
     console.log(tt);
    listArray1.pop();
+   checkCountId--;
   /* listArray1 = [];
    for (let i=0;i<tt.length;i++){
        let listId = "list"+i;
@@ -438,37 +443,49 @@ function createList(parentElement){
     if (addthing === null){
         return;
     }
+    ///// for check box ////////////////////
+    let checkBox = document.createElement("INPUT");
+    checkBox.setAttribute("type","checkbox");
+    checkBox.setAttribute("class","allCheck");
+    //checkBox.setAttribute("id","check");
+    let idchk = "chk"+(checkCountId++);
+    checkBox.setAttribute("id",idchk);
+
+    /////
     lli.innerText = addthing;
     listArray.push(lli.innerText);
     //lli.style.fontSize = "28px";
     tt.appendChild(lli);
+    lli.appendChild(checkBox);
+
+    let xx = document.getElementById(idchk).checked;
+    console.log("xx checked  " + xx);
 
     //listArray1 = [];
     listArray1.push(lli.innerText);
     console.log(listArray1);
+
+    let bothArray  = [lli.innerText,xx];
+    listArrayInTwinPair.push(bothArray);
 }
 
 function saveListInObject(){
    // alert();
- /*  listArray1 = [];
-    let removeTemp = document.getElementById("ul");
 
-    let tt =  removeTemp.getElementsByClassName("lis");
-    for (let i=0;i<tt.length;i++){
-        let tmpId = "list"+i;
-       let tp = document.getElementById(tmpId);
-        listArray1.push(tp.innerText);
-        //console.log(tp.innerText);
-    }*/
+    let newName;
        console.log("single list"+listArray1);
+    if (createListNum === 0){
+        newName = prompt("Name of the New List :");
+        let lst = new ListObject(myUser,newName,listArray1);
+        listArrayObject.push(lst);
+        console.log(lst.user +" " + lst.name);
+        console.log(lst.listArr);
+        checkBoxGetStatus("ul");
+    }else{
 
-    let newName = prompt("Name of the New List :");
-    // let username = document.getElementById("userLn").value;
-    //object lst created with all details of users
-    let lst = new ListObject(myUser,newName,listArray1);
-    listArrayObject.push(lst);
-    console.log(lst.user +" " + lst.name);
-    console.log(lst.listArr);
+        return;
+    }
+
 
 }
 //object created for user having lists
@@ -476,6 +493,22 @@ function ListObject(user,name,listArr) {
     this.user = user,
     this.name = name,
     this.listArr = listArr
+
+}
+//get True or false from existing list check box
+function checkBoxGetStatus(classNameOfList) {
+    //let removeTemp = document.getElementById(classNameOfList);
+    //let arr = [];
+    let tt =  document.getElementsByClassName("lis");
+    console.log("rrrrr ",  document.getElementById("chk1" ).checked);
+    let lcId = 0;
+    //let allList = document.getElementsByClassName(classNameOfList);
+    for (let ii = 0;ii<tt.length;ii++){
+        let chkId  = "chk" + (ii);
+        let xx = document.getElementById(chkId).checked;
+        console.log("xx  "+ xx +"chkId  "+ chkId);
+    }
+    //console.log("ggGG  "  +arr);
 
 }
 //final function run
