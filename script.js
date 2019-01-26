@@ -18,7 +18,8 @@ let listCountId = 0;
 let checkCountId = 0;
 //lists of individual user in array
 let listArrayObject = [];
-
+//with twin member in object
+let listArrayObject1 = [];
 let myUser;
 
 let createListNum = 0;
@@ -417,16 +418,13 @@ function removeItemFromList() {
     tt[total].remove();
     console.log(tt);
    listArray1.pop();
+   //for list id
+    listCountId--;
+    //for check bod id
    checkCountId--;
-  /* listArray1 = [];
-   for (let i=0;i<tt.length;i++){
-       let listId = "list"+i;
-       let listVar = document.getElementById(listId);
-       console.log("listVar  "+listId + " rrr "+ listVar.innerText);
 
-       listArray1.push(listVar.innerText);
-   }*/
-
+    //let bothArray  = [lli.innerText,xx];
+    listArrayInTwinPair.pop();
 
 }
 function makeList(){
@@ -472,15 +470,13 @@ function createList(parentElement){
 function saveListInObject(){
    // alert();
 
-    let newName;
+
        console.log("single list"+listArray1);
     if (createListNum === 0){
-        newName = prompt("Name of the New List :");
-        let lst = new ListObject(myUser,newName,listArray1);
-        listArrayObject.push(lst);
-        console.log(lst.user +" " + lst.name);
-        console.log(lst.listArr);
+
+        //listArrayInTwinPair.push(bothArray);
         checkBoxGetStatus("ul");
+
     }else{
 
         return;
@@ -499,7 +495,9 @@ function ListObject(user,name,listArr) {
 function checkBoxGetStatus(classNameOfList) {
     //let removeTemp = document.getElementById(classNameOfList);
     //let arr = [];
+    listArrayInTwinPair = [];
     let tt =  document.getElementsByClassName("lis");
+
     console.log("rrrrr ",  document.getElementById("chk1" ).checked);
     let lcId = 0;
     //let allList = document.getElementsByClassName(classNameOfList);
@@ -507,8 +505,30 @@ function checkBoxGetStatus(classNameOfList) {
         let chkId  = "chk" + (ii);
         let xx = document.getElementById(chkId).checked;
         console.log("xx  "+ xx +"chkId  "+ chkId);
+
+        let idForList = "list"+[ii];
+        let listId = document.getElementById(idForList);
+
+        console.log(listId.innerText);
+
+        let bothArray  = [listId.innerText,xx];
+        listArrayInTwinPair.push(bothArray);
+
     }
     //console.log("ggGG  "  +arr);
+    let newName;
+    newName = prompt("Name of the New List :");
+    let lst = new ListObject(myUser,newName,listArray1);
+    listArrayObject.push(lst);
+    console.log(lst.user +" " + lst.name);
+    console.log(lst.listArr);
+    // checkBoxGetStatus("ul");
+
+    //let bothArray  = [lli.innerText,lst];
+    let lst1 = new ListObject(myUser,newName,listArrayInTwinPair);
+    listArrayObject1.push(lst1);
+
+    console.log("list Array pair "+listArrayInTwinPair );
 
 }
 //final function run
