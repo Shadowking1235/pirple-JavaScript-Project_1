@@ -140,3 +140,9 @@ h1{
     color: aliceblue;
     margin-left: 25px;
 }
+.storedList{
+    cursor: pointer;
+    font-size: 21px;
+    font-weight: 900;
+    color: deeppink;
+}

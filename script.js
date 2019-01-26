@@ -3,6 +3,7 @@
 * but passwords should not be displayed in plain text inputs
 * This application should store its data using localStorage only
 * The dashboard should list (in chronological order), all of the "To-Do Lists"
+* when page opens enter "delete" to clear all data of all users
 */
 
 let getValueUser;
@@ -24,6 +25,8 @@ let myUser;
 
 let createListNum = 0;
 
+
+let tempArrForUserDleteComand = [];
 //Create Main Page For To Do List
 function createRegistrationPage() {
     var cc = document.getElementById("b1");
@@ -54,9 +57,46 @@ function createRegistrationPage() {
    var dash = document.getElementById("btn");
    dash.addEventListener("click",createLogInUserAnsPassForDashBoard);
 
+    /*var e = new KeyboardEvent("keydown", {
+        bubbles : true,
+        cancelable : true,
+        char : "Q",
+        key : "q",
+        shiftKey : true,
+        keyCode : 81
+    });*/
+
+   window.document.addEventListener("keypress",deletAll,true);
+
+
+
+}
+function deletAll(e){
+
+        console.log(e.key + " " + tempArrForUserDleteComand);
+        function getSum(total, num) {
+            return total + num;
+        }
+    tempArrForUserDleteComand.push(e.key);
+    tempArrForUserDleteComand.reduce(getSum);
+        console.log(tempArrForUserDleteComand);
+        if (tempArrForUserDleteComand.reduce(getSum) === "delete"){
+            alert("all users data deleted !!");
+            deleteAllUsersData();
+            console.log("all users data deleted");
+            tempArrForUserDleteComand = [];
+            window.document.removeEventListener("keypress", deletAll,true);
+        }else if (tempArrForUserDleteComand.length>5){
+            tempArrForUserDleteComand = [];
+            console.log("reset ");
+            window.document.removeEventListener("keypress", deletAll,true);
+        }
+
+
 }
 //create form for registration
 function createFrm() {
+     window.document.removeEventListener("keypress", deletAll,true);
      removeElement("instruction");
      removeElement("btn");
      removeElement("btnReg");
@@ -212,6 +252,8 @@ function getValueS(){
         alert('no');
         mainArray.push(tt);
         localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+        //create new local storage
+        createStorageDataTemplate(myUser,listArrayObject1);
     }
    /* if (storedData) {
         mainArray = JSON.parse(storedData);
@@ -267,6 +309,8 @@ function checkDuplicateUserName(arr,name){
 
 function createLogInUserAnsPassForDashBoard(){
     //alert();
+    //delete key bord press event for protect key board enter
+    window.document.removeEventListener("keypress", deletAll,true);
     removeElement("btn");
     removeElement("btnReg");
     var ff = document.getElementById("instruction");
@@ -302,7 +346,7 @@ function createLogInUserAnsPassForDashBoard(){
     btnToCheckUserPass.addEventListener("click",createDashBoardCheck);
 
 }
-
+// check user name and password for log in
 function createDashBoardCheck(){
     //alert();
     let username = document.getElementById("userLn").value;
@@ -337,18 +381,29 @@ function createDashBoardCheck(){
     }
 
 }
-//dash board dialog box
+//dash board dialog box that checks user have any stored list
 function createDashBoard(userN,fName,lName) {
+    //createStorageDataTemplate(userN,listArrayObject1);
+    var storedDataOfMyUser = JSON.parse(localStorage.getItem(userN));
+        listArrayObject1 = storedDataOfMyUser;
+
     addElement("b1","div","dashboard","box03","");
     let dash = document.getElementById("dashboard");
     dash.innerHTML = "<span id='welcome'>"+"Welcome "+ fName +" "+ lName +"</span>";
-    if (listArray.length === 0){
+    if (storedDataOfMyUser.length === 0){
         alert("no list");
         addElement("b1","div","dashboardNoList","box03","");
         let dashnolist = document.getElementById("dashboardNoList");
         dashnolist.innerHTML = "<span id='noList'>"+"You Don`t have list, "+ fName +" "+ lName +"</span>";
     }else{
         alert("u have list");
+        addElement("b1","div","dashboardNoList","box03","");
+        let dashnolist = document.getElementById("dashboardNoList");
+        dashnolist.innerHTML = "<span id='noList'>"+"You have following list, "+ fName +" "+ lName +"</span>";
+        console.log("list name "+storedDataOfMyUser[0].name+"List "+storedDataOfMyUser[0].listArr);
+        // create list from storedDataOfMyUser
+        setTimeout(createListFromStoredDataList, 5000,storedDataOfMyUser);
+        //createListFromStoredDataList(storedDataOfMyUser);
     }
     addElement("b1","div","createList","box04","");
     let bb1 = document.getElementById("createList");
@@ -528,8 +583,58 @@ function checkBoxGetStatus(classNameOfList) {
     let lst1 = new ListObject(myUser,newName,listArrayInTwinPair);
     listArrayObject1.push(lst1);
 
+    updateLocalStorageData(myUser,listArrayObject1);
+
     console.log("list Array pair "+listArrayInTwinPair );
 
 }
+
+function createStorageDataTemplate(user,arrS) {
+    //arr = [];
+
+    localStorage.setItem(user, JSON.stringify(arrS));
+   // return JSON.parse(localStorage.getItem(user));
+}
+function getDataFromStorage(user,arrRetrive) {
+    if(user in localStorage){
+        return JSON.parse(localStorage.getItem(user));
+    }else {
+        console.log("Data of user not exist");
+        return ;
+    }
+
+}
+function updateLocalStorageData(user,arrUpdate) {
+    //arrUpdate.push(input.value);
+
+    localStorage.setItem(user, JSON.stringify(arrUpdate));
+}
+function deleteAllUsersData(){
+    localStorage.clear();
+}
+//create list view from stored list data
+function createListFromStoredDataList(myStoredData){
+    addElement("b1","div","userStoredList","box03","");
+
+    console.log("data length " +myStoredData.length);
+    let dashDiv  = document.getElementById("userStoredList");
+    let newUl = document.createElement("ul");
+    dashDiv.appendChild(newUl);
+    for (let i=0;i<myStoredData.length;i++){
+        let newList = document.createElement("li");
+        newList.setAttribute("class","storedList");
+        newList.innerText = myStoredData[i].name;
+        newUl.appendChild(newList);
+        newList.addEventListener("click",function () {
+            console.log(i);
+            listView();
+        })
+    }
+}
+
+
+
+
+
 //final function run
 createRegistrationPage();
