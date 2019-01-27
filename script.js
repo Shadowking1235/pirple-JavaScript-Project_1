@@ -624,9 +624,19 @@ function checkBoxGetStatus(classNameOfList) {
 
       let  newName = prompt("Name of the New List :");
       if (checkNameOfListExistInSavedRecord(listArrayObject1,newName) === true || newName === ""){
-          confirm("This is an Confirm Dialog");
-          alert("confirm");
-          return;
+          var result = confirm("You want to override list or not!!!");
+          if(result){
+              alert("confirm over ride");
+              //here comes override code
+              overRightListData(listArrayObject1,newName);
+              //return;
+          }else{
+
+              alert("no");
+              return;
+          }
+
+
       }
 
 
@@ -778,7 +788,27 @@ function removeListByName(dataList,givenNameOfList){
     //removeElement("userStoredList");
     //setTimeout(createListFromStoredDataList, 500,dataList);
 }
-function OverRightListData(datalist){
+//over right data of list named
+function overRightListData(datalist,givenNameOfList){
+
+    for (let k=0; k < datalist.length;k++) {
+        if (givenNameOfList === datalist[k].name) {
+            console.log(" name is in list " + givenNameOfList);
+            alert(" name is in list " + givenNameOfList);
+            //dataList.remove(k);
+            datalist.splice(k,1);
+            //dataList.splice(k, 1);
+
+            listArrayObject1   = datalist;
+            alert("stored");
+            return;
+            /*updateLocalStorageData(myUser,dataList);
+            alert("stored");
+            removeElement("userStoredList");
+            setTimeout(createListFromStoredDataList, 500,dataList);
+            return;*/
+        }
+    }
 
 }
 
