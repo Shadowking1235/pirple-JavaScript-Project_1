@@ -24,9 +24,12 @@ let listArrayObject1 = [];
 let myUser;
 
 let createListNum = 0;
+let isListSelected = false;
 
-
+let selectedList;
 let tempArrForUserDleteComand = [];
+
+let listCheck = 0;
 //Create Main Page For To Do List
 function createRegistrationPage() {
     var cc = document.getElementById("b1");
@@ -182,6 +185,12 @@ function createForm(parentElement){
 
     newd3.appendChild(s);
 
+    var exit = document.createElement("BUTTON");
+    exit.setAttribute("type","BUTTON");
+    exit.setAttribute("value","Submit");
+    exit.setAttribute("id","exitToMain");
+    newd3.appendChild(exit);
+    exit.innerText = "Exit";
     f.appendChild(newd1);f.appendChild(newd2);f.appendChild(newd3);
 
     //f.appendChild(pass);
@@ -195,7 +204,7 @@ function createForm(parentElement){
     let gv = document.getElementById("userPassword");
 
     gv.addEventListener("click",getValueS);
-
+    exit.addEventListener("click",goToMainPage);
 
 }
 //get all value fill in the form to save
@@ -340,8 +349,17 @@ function createLogInUserAnsPassForDashBoard(){
     var temp = document.getElementById("d111");
     var btnToCheckUserPass = document.createElement("BUTTON");
     btnToCheckUserPass.setAttribute("id","btnToCheckUser");
-    btnToCheckUserPass.innerText = "Press";
+    btnToCheckUserPass.innerText = "Enter";
     temp.appendChild(btnToCheckUserPass);
+
+
+    var btnToExit = document.createElement("BUTTON");
+    btnToExit.setAttribute("id","btnToExit");
+    btnToExit.innerText = "Exit";
+    temp.appendChild(btnToExit);
+
+    btnToExit.addEventListener("click",goToMainPage);
+
 
     btnToCheckUserPass.addEventListener("click",createDashBoardCheck);
 
@@ -390,8 +408,11 @@ function createDashBoard(userN,fName,lName) {
     addElement("b1","div","dashboard","box03","");
     let dash = document.getElementById("dashboard");
     dash.innerHTML = "<span id='welcome'>"+"Welcome "+ fName +" "+ lName +"</span>";
-    if (storedDataOfMyUser.length === 0){
+    console.log("listArrayObject1 " + listArrayObject1);
+    if ( storedDataOfMyUser === null){
         alert("no list");
+        //if no list then listArrayObject1 array should be initialized
+        listArrayObject1 = [];
         addElement("b1","div","dashboardNoList","box03","");
         let dashnolist = document.getElementById("dashboardNoList");
         dashnolist.innerHTML = "<span id='noList'>"+"You Don`t have list, "+ fName +" "+ lName +"</span>";
@@ -402,7 +423,7 @@ function createDashBoard(userN,fName,lName) {
         dashnolist.innerHTML = "<span id='noList'>"+"You have following list, "+ fName +" "+ lName +"</span>";
         console.log("list name "+storedDataOfMyUser[0].name+"List "+storedDataOfMyUser[0].listArr);
         // create list from storedDataOfMyUser
-        setTimeout(createListFromStoredDataList, 5000,storedDataOfMyUser);
+        setTimeout(createListFromStoredDataList, 1000,storedDataOfMyUser);
         //createListFromStoredDataList(storedDataOfMyUser);
     }
     addElement("b1","div","createList","box04","");
@@ -411,15 +432,28 @@ function createDashBoard(userN,fName,lName) {
     createBtnForList.setAttribute("id","createlistbtn");
     createBtnForList.innerText ="Create List";
     bb1.appendChild(createBtnForList);
+
+    let createBtnForExit =  document.createElement("button");
+    createBtnForExit.setAttribute("id","createlistbtnForExit");
+    createBtnForExit.innerText ="Exit";
+    bb1.appendChild(createBtnForExit);
     
     let tempBtnCreateList = document.getElementById("createlistbtn");
     tempBtnCreateList.addEventListener("click",listView);
+
+    createBtnForExit.addEventListener("click",goToMainPage);
+}
+function goToMainPage() {
+    location.reload();
 }
 function listView() {
     //alert();
     if (listD===1){
-        alert("exist");
-        return;
+        alert("you want to refresh! Data may exist?");
+        removeElement("newList");
+        removeElement("saveList");
+        listCheck = 0;
+        //return;
     }
     addElement("b1","div","newList","box04","");
     let tt = document.getElementById("newList");
@@ -472,11 +506,11 @@ function removeItemFromList() {
     }
     tt[total].remove();
     console.log(tt);
-   listArray1.pop();
-   //for list id
+    listArray1.pop();
+    //for list id
     listCountId--;
     //for check bod id
-   checkCountId--;
+    checkCountId--;
 
     //let bothArray  = [lli.innerText,xx];
     listArrayInTwinPair.pop();
@@ -492,6 +526,7 @@ function createList(parentElement){
     lli.setAttribute("class","lis");
     let idTmp = "list"+(listCountId++);
     lli.setAttribute("id",idTmp);
+
     let addthing = prompt("Enter Item :" );
     if (addthing === null){
         return;
@@ -524,19 +559,13 @@ function createList(parentElement){
 
 function saveListInObject(){
    // alert();
-
-
        console.log("single list"+listArray1);
-    if (createListNum === 0){
+    //if (createListNum === 0){
 
         //listArrayInTwinPair.push(bothArray);
         checkBoxGetStatus("ul");
-
-    }else{
-
-        return;
-    }
-
+        refreshAfterSaveList();
+    //}
 
 }
 //object created for user having lists
@@ -550,6 +579,8 @@ function ListObject(user,name,listArr) {
 function checkBoxGetStatus(classNameOfList) {
     //let removeTemp = document.getElementById(classNameOfList);
     //let arr = [];
+    //listArrayObject1 = [];
+
     listArrayInTwinPair = [];
     let tt =  document.getElementsByClassName("lis");
 
@@ -571,8 +602,11 @@ function checkBoxGetStatus(classNameOfList) {
 
     }
     //console.log("ggGG  "  +arr);
-    let newName;
-    newName = prompt("Name of the New List :");
+
+
+      let  newName = prompt("Name of the New List :");
+
+
     let lst = new ListObject(myUser,newName,listArray1);
     listArrayObject.push(lst);
     console.log(lst.user +" " + lst.name);
@@ -580,9 +614,11 @@ function checkBoxGetStatus(classNameOfList) {
     // checkBoxGetStatus("ul");
 
     //let bothArray  = [lli.innerText,lst];
+    console.log("myuser "+myUser+ " newName " + newName);
+    console.log("listArrayInTwinPair "+listArrayInTwinPair);
     let lst1 = new ListObject(myUser,newName,listArrayInTwinPair);
     listArrayObject1.push(lst1);
-
+    console.log("listArrayObject1.length " +listArrayObject1.length);
     updateLocalStorageData(myUser,listArrayObject1);
 
     console.log("list Array pair "+listArrayInTwinPair );
@@ -612,7 +648,7 @@ function updateLocalStorageData(user,arrUpdate) {
 function deleteAllUsersData(){
     localStorage.clear();
 }
-//create list view from stored list data
+//create list view from stored list data by clicking on lists
 function createListFromStoredDataList(myStoredData){
     addElement("b1","div","userStoredList","box03","");
 
@@ -626,13 +662,56 @@ function createListFromStoredDataList(myStoredData){
         newList.innerText = myStoredData[i].name;
         newUl.appendChild(newList);
         newList.addEventListener("click",function () {
+            isListSelected = true;
             console.log(i);
             listView();
+            console.log("data selected ",myStoredData[i].listArr);
+            let pp = myStoredData[i].listArr;
+            let tmpObject = myStoredData[i];
+            populatedStoredListData("ul",pp,i,tmpObject);
         })
     }
 }
+//create function for populate stored data list selected
+function populatedStoredListData(parantNodeId,arr,index,arrObj){
+    if (listCheck===1){
+        console.log("list already selected");
+        return;
+    }
+    listCheck = 1;
+    let nodeUl1 = document.getElementById("ul");
+    listCountId = 0;checkCountId = 0;selectedList = arrObj.name;
+    console.log(arrObj.name);
+    for (let ii =0;ii<arr.length;ii++){
+        let newLiId = document.createElement("li");
+        //let liId = "lis"+ii;
+        let idTmp = "list"+(listCountId++);
+        newLiId.setAttribute("id",idTmp);
+        newLiId.setAttribute("class","lis");
+        console.log("arr ",arr[ii][0]);
+        nodeUl1.appendChild(newLiId);
+        let trmppp = document.getElementById(idTmp);
+        trmppp.innerText = arr[ii][0];
+
+        ///// for check box ////////////////////
+        let checkBox = document.createElement("INPUT");
+        checkBox.setAttribute("type","checkbox");
+        checkBox.setAttribute("class","allCheck");
+        //checkBox.setAttribute("id","check");
+        let idchk = "chk"+(checkCountId++);
+        checkBox.setAttribute("id",idchk);
+        trmppp.appendChild(checkBox);
+        let check = document.getElementById(idchk);
+        check.checked = arr[ii][1];
 
 
+        /////
+    }
+}
+function refreshAfterSaveList(){
+    removeElement("ul");
+    listCheck = 0;
+}
 
 
 
