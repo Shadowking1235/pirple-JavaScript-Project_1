@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todo.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
-              <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -26,16 +26,16 @@
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
-              <caret line="113" column="8" lean-forward="true" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
+              <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="423" column="88" selection-start-line="423" selection-start-column="88" selection-end-line="423" selection-end-column="88" />
+            <state relative-caret-position="345">
+              <caret line="344" column="42" selection-start-line="344" selection-start-column="42" selection-end-line="344" selection-end-column="42" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#36#42#0" expanded="true" />
@@ -72,7 +72,6 @@
       <find>submit</find>
       <find>press</find>
       <find>regi</find>
-      <find>create list</find>
       <find>alert</find>
       <find>exit</find>
       <find>to do</find>
@@ -80,6 +79,14 @@
       <find>welcome</find>
       <find>dashboard</find>
       <find>you</find>
+      <find>createlistfromstoreddatalist</find>
+      <find>savelistinobject</find>
+      <find>create list</find>
+      <find>listd</find>
+      <find>makelist</find>
+      <find>savelist</find>
+      <find>savelistinob</find>
+      <find>removelistbyname</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -96,10 +103,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="674" />
-    <option name="y" value="40" />
-    <option name="width" value="1132" />
-    <option name="height" value="972" />
+    <option name="x" value="447" />
+    <option name="y" value="49" />
+    <option name="width" value="1402" />
+    <option name="height" value="959" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -154,15 +161,16 @@
       <workItem from="1548459159276" duration="10323000" />
       <workItem from="1548470038784" duration="11736000" />
       <workItem from="1548492837589" duration="15806000" />
-      <workItem from="1548542508652" duration="11055000" />
+      <workItem from="1548542508652" duration="11207000" />
+      <workItem from="1548561074031" duration="13219000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172616000" />
+    <option name="totallyTimeSpent" value="185987000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="674" y="40" width="1132" height="972" extended-state="0" />
+    <frame x="447" y="49" width="1402" height="959" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.094004445" />
@@ -217,14 +225,21 @@
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
-          <caret line="113" column="8" lean-forward="true" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
+          <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="423" column="88" selection-start-line="423" selection-start-column="88" selection-end-line="423" selection-end-column="88" />
+        <state relative-caret-position="345">
+          <caret line="344" column="42" selection-start-line="344" selection-start-column="42" selection-end-line="344" selection-end-column="42" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#36#42#0" expanded="true" />
@@ -234,13 +249,6 @@
             <element signature="e#38#44#0" expanded="true" />
             <element signature="e#44#50#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
         </state>
       </provider>
     </entry>

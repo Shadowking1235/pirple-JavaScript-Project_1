@@ -160,7 +160,7 @@ function createForm(parentElement){
     i.setAttribute("type","text");
     i.setAttribute("name","username");
     i.setAttribute("id","userSname");
-    i.setAttribute("value","no");
+    i.setAttribute("value","");
 
     newd1.appendChild(i);
 
@@ -168,7 +168,7 @@ function createForm(parentElement){
     newd2.setAttribute("id","div2");
     newd2.innerHTML = "<span id='formSp2Label'>" + "Password ::   "+"&nbsp;" + "&nbsp;"  + "</span>";
     var pass = document.createElement("input");
-    pass.setAttribute("type","text");
+    pass.setAttribute("type","password");
     pass.setAttribute("password","password");
     pass.setAttribute("id","pass");
     pass.setAttribute("name","Name");
@@ -342,6 +342,7 @@ function createLogInUserAnsPassForDashBoard(){
     var userPass = document.createElement("input");
     userPass.setAttribute("id","userLnPass");
     userPass.setAttribute("value","");
+    userPass.setAttribute("type","password");
     lbl1.appendChild(userPass);
 
     addElement("b1","div","d111","box02","");
@@ -439,11 +440,22 @@ function createDashBoard(userN,fName,lName) {
     createBtnForExit.setAttribute("id","createlistbtnForExit");
     createBtnForExit.innerText ="Sign Out";
     bb1.appendChild(createBtnForExit);
+
+    let createBtnForDeleteListByName =  document.createElement("button");
+    createBtnForDeleteListByName.setAttribute("id","createlistbtnForExit");
+    createBtnForDeleteListByName.innerText ="Delete List";
+    bb1.appendChild(createBtnForDeleteListByName);
     
     let tempBtnCreateList = document.getElementById("createlistbtn");
     tempBtnCreateList.addEventListener("click",listView);
 
     createBtnForExit.addEventListener("click",goToMainPage);
+    createBtnForDeleteListByName.addEventListener("click",deleteListByName);
+}
+function deleteListByName() {
+    let listNme = prompt("List Name to delete ");
+    removeListByName(listArrayObject1,listNme);
+
 }
 function goToMainPage() {
     location.reload();
@@ -496,6 +508,9 @@ function listView() {
     saveBtn.addEventListener("click",saveListInObject);
 
     listD = 1;
+    listCountId = 0;
+    checkCountId = 0;
+
 }
 function removeItemFromList() {
     let removeTemp = document.getElementById("ul");
@@ -519,6 +534,7 @@ function removeItemFromList() {
 
 }
 function makeList(){
+
     createList("ul");
 }
 //creating list on page
@@ -560,14 +576,16 @@ function createList(parentElement){
 }
 
 function saveListInObject(){
-   // alert();
-       console.log("single list"+listArray1);
-    //if (createListNum === 0){
 
-        //listArrayInTwinPair.push(bothArray);
+        console.log("single list"+listArray1);
+
         checkBoxGetStatus("ul");
         refreshAfterSaveList();
-    //}
+     listD = 0;
+        removeElement("newList");
+        removeElement("saveList");
+    removeElement("userStoredList");
+    setTimeout(createListFromStoredDataList, 500,listArrayObject1);
 
 }
 //object created for user having lists
@@ -586,7 +604,7 @@ function checkBoxGetStatus(classNameOfList) {
     listArrayInTwinPair = [];
     let tt =  document.getElementsByClassName("lis");
 
-    console.log("rrrrr ",  document.getElementById("chk1" ).checked);
+    //console.log("rrrrr ",  document.getElementById("chk1" ).checked);
     let lcId = 0;
     //let allList = document.getElementsByClassName(classNameOfList);
     for (let ii = 0;ii<tt.length;ii++){
@@ -603,10 +621,13 @@ function checkBoxGetStatus(classNameOfList) {
         listArrayInTwinPair.push(bothArray);
 
     }
-    //console.log("ggGG  "  +arr);
-
 
       let  newName = prompt("Name of the New List :");
+      if (checkNameOfListExistInSavedRecord(listArrayObject1,newName) === true || newName === ""){
+          confirm("This is an Confirm Dialog");
+          alert("confirm");
+          return;
+      }
 
 
     let lst = new ListObject(myUser,newName,listArray1);
@@ -654,7 +675,7 @@ function deleteAllUsersData(){
 function createListFromStoredDataList(myStoredData){
     addElement("b1","div","userStoredList","box03","");
 
-    console.log("data length " +myStoredData.length);
+    console.log("data length " + myStoredData.length);
     let dashDiv  = document.getElementById("userStoredList");
     let newUl = document.createElement("ul");
     dashDiv.appendChild(newUl);
@@ -714,8 +735,52 @@ function refreshAfterSaveList(){
     removeElement("ul");
     listCheck = 0;
 }
+function checkNameOfListExistInSavedRecord(dataList,givenName) {
+    //alert("arrrrrrrrrrrrrrrrr");
+    //console.log("check name of list "+dataList[0].name);
+    for (let k=0;k<dataList.length;k++){
+        if (givenName === dataList[k].name) {
+            console.log(" name is in list "+givenName);
+            alert(" name is in list "+givenName);
+            return true
+        }
+    }
+    return false ;
+}
+function removeListByName(dataList,givenNameOfList){
+    // console.log("check name of list "+dataList[3].name);
 
+    for (let k=0;k<dataList.length;k++){
+        if (givenNameOfList === dataList[k].name) {
+            console.log(" name is in list "+givenNameOfList);
+            alert(" name is in list "+givenNameOfList);
+            //dataList.remove(k);
+            dataList.splice(k, 1);
+            updateLocalStorageData(myUser,dataList);
+            alert("stored");
+            removeElement("userStoredList");
+            setTimeout(createListFromStoredDataList, 500,dataList);
+            return;
+        }
+        if (dataList[k].name === null){
+            alert("blank name is in list "+givenNameOfList);
+            //dataList.remove(k);
+            dataList.splice(k, 1);
+            updateLocalStorageData(myUser,dataList);
+            alert("stored");
+            removeElement("userStoredList");
+            setTimeout(createListFromStoredDataList, 500,dataList);
+            return;
+        }
+    }
+    //updateLocalStorageData(myUser,dataList);
+    //alert("stored");
+    //removeElement("userStoredList");
+    //setTimeout(createListFromStoredDataList, 500,dataList);
+}
+function OverRightListData(datalist){
 
+}
 
 //final function run
 createRegistrationPage();
