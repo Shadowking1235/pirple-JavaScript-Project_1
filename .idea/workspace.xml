@@ -34,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="790" column="31" selection-start-line="790" selection-start-column="31" selection-end-line="790" selection-end-column="31" />
+            <state relative-caret-position="345">
+              <caret line="586" column="30" selection-start-line="586" selection-start-column="30" selection-end-line="586" selection-end-column="30" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#36#42#0" expanded="true" />
@@ -87,6 +87,8 @@
       <find>savelist</find>
       <find>savelistinob</find>
       <find>removelistbyname</find>
+      <find>userstoredlist</find>
+      <find>createListFromStoredDataList</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,12 +164,12 @@
       <workItem from="1548470038784" duration="11736000" />
       <workItem from="1548492837589" duration="15806000" />
       <workItem from="1548542508652" duration="11207000" />
-      <workItem from="1548561074031" duration="16058000" />
+      <workItem from="1548561074031" duration="19035000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188826000" />
+    <option name="totallyTimeSpent" value="191803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="447" y="49" width="1402" height="959" extended-state="0" />
@@ -238,8 +240,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="790" column="31" selection-start-line="790" selection-start-column="31" selection-end-line="790" selection-end-column="31" />
+        <state relative-caret-position="345">
+          <caret line="586" column="30" selection-start-line="586" selection-start-column="30" selection-end-line="586" selection-end-column="30" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#36#42#0" expanded="true" />

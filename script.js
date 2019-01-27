@@ -423,7 +423,7 @@ function createDashBoard(userN,fName,lName) {
         addElement("b1","div","dashboardNoList","box03","");
         let dashnolist = document.getElementById("dashboardNoList");
         dashnolist.innerHTML = "<span id='noList'>"+"You have following list and Options, "+ fName +" "+ lName +"</span>";
-        console.log("list name "+storedDataOfMyUser[0].name+"List "+storedDataOfMyUser[0].listArr);
+        //console.log("list name "+storedDataOfMyUser[0].name+"List "+storedDataOfMyUser[0].listArr);
         // create list from storedDataOfMyUser
         setTimeout(createListFromStoredDataList, 1000,storedDataOfMyUser);
         //createListFromStoredDataList(storedDataOfMyUser);
@@ -584,7 +584,10 @@ function saveListInObject(){
      listD = 0;
         removeElement("newList");
         removeElement("saveList");
-    removeElement("userStoredList");
+        if (listArrayObject1 !== null){
+            removeElement("userStoredList");
+        }
+
     setTimeout(createListFromStoredDataList, 500,listArrayObject1);
 
 }
