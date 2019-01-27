@@ -355,7 +355,7 @@ function createLogInUserAnsPassForDashBoard(){
 
     var btnToExit = document.createElement("BUTTON");
     btnToExit.setAttribute("id","btnToExit");
-    btnToExit.innerText = "Exit";
+    btnToExit.innerText = "Back";
     temp.appendChild(btnToExit);
 
     btnToExit.addEventListener("click",goToMainPage);
@@ -380,6 +380,7 @@ function createDashBoardCheck(){
                 removeElement("userLn");removeElement("userLnPass");
                 removeElement("btnToCheckUser");removeElement("logInUserName");
                 removeElement("logInUserNameLbl");
+                removeElement("d111");
                 createDashBoard(username,mainArray[i].firstName,mainArray[i].lastName);
                 break;
             }else  {
@@ -420,7 +421,7 @@ function createDashBoard(userN,fName,lName) {
         alert("u have list");
         addElement("b1","div","dashboardNoList","box03","");
         let dashnolist = document.getElementById("dashboardNoList");
-        dashnolist.innerHTML = "<span id='noList'>"+"You have following list, "+ fName +" "+ lName +"</span>";
+        dashnolist.innerHTML = "<span id='noList'>"+"You have following list and Options, "+ fName +" "+ lName +"</span>";
         console.log("list name "+storedDataOfMyUser[0].name+"List "+storedDataOfMyUser[0].listArr);
         // create list from storedDataOfMyUser
         setTimeout(createListFromStoredDataList, 1000,storedDataOfMyUser);
@@ -430,12 +431,13 @@ function createDashBoard(userN,fName,lName) {
     let bb1 = document.getElementById("createList");
     let createBtnForList =  document.createElement("button");
     createBtnForList.setAttribute("id","createlistbtn");
+    createBtnForList.style.cursor = "pointer";
     createBtnForList.innerText ="Create List";
     bb1.appendChild(createBtnForList);
 
     let createBtnForExit =  document.createElement("button");
     createBtnForExit.setAttribute("id","createlistbtnForExit");
-    createBtnForExit.innerText ="Exit";
+    createBtnForExit.innerText ="Sign Out";
     bb1.appendChild(createBtnForExit);
     
     let tempBtnCreateList = document.getElementById("createlistbtn");
@@ -449,7 +451,7 @@ function goToMainPage() {
 function listView() {
     //alert();
     if (listD===1){
-        alert("you want to refresh! Data may exist?");
+        alert("you want to refresh! Data may loss if not saved?");
         removeElement("newList");
         removeElement("saveList");
         listCheck = 0;
