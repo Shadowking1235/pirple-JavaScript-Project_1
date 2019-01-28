@@ -474,6 +474,7 @@ function createDashBoard(userN,fName,lName) {
     let createBtnForList =  document.createElement("button");
     createBtnForList.setAttribute("id","createlistbtn");
     createBtnForList.style.cursor = "pointer";
+    createBtnForList.style.backgroundColor = "pink";
     createBtnForList.innerText ="Create List";
     bb1.appendChild(createBtnForList);
 
@@ -626,7 +627,8 @@ function createList(parentElement){
 
 function saveListInObject(){
         if (typeof listArrayObject1 === "undefined") {
-
+            listArrayObject1 = [];
+            isListFirstTime = true;
         }
         console.log("single list"+listArray1);
 
@@ -635,7 +637,7 @@ function saveListInObject(){
      listD = 0;
         removeElement("newList");
         removeElement("saveList");
-        if (listArrayObject1 !== null && isListFirstTime === false ){
+        if ( isListFirstTime === false ){
             removeElement("userStoredList");
         }
 
@@ -681,9 +683,6 @@ function checkBoxGetStatus() {
     }
 
       let  newName = prompt("Name of the New List :");
-      if (typeof listArrayObject1 === "undefined"){
-          listArrayObject1 = [];
-      }
       if (checkNameOfListExistInSavedRecord(listArrayObject1,newName) === true || newName === ""){
           var result = confirm("You want to override list or not!!!");
           if(result){

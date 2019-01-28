@@ -22,20 +22,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="586" column="30" selection-start-line="586" selection-start-column="30" selection-end-line="586" selection-end-column="30" />
+            <state relative-caret-position="363">
+              <caret line="637" column="40" selection-start-line="637" selection-start-column="40" selection-end-line="637" selection-end-column="40" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#36#42#0" expanded="true" />
@@ -45,6 +36,15 @@
                 <element signature="e#38#44#0" expanded="true" />
                 <element signature="e#44#50#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="106">
+              <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -62,33 +62,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>myuser</find>
-      <find>btn</find>
-      <find>saveListInObject</find>
-      <find>checkBoxGetStatus</find>
-      <find>list name</find>
-      <find>listArrayObject1</find>
-      <find>createlistfrom</find>
-      <find>submit</find>
-      <find>press</find>
-      <find>regi</find>
-      <find>alert</find>
-      <find>exit</find>
-      <find>to do</find>
-      <find>to do list</find>
-      <find>welcome</find>
       <find>dashboard</find>
       <find>you</find>
       <find>createlistfromstoreddatalist</find>
-      <find>savelistinobject</find>
-      <find>create list</find>
       <find>listd</find>
       <find>makelist</find>
       <find>savelist</find>
       <find>savelistinob</find>
       <find>removelistbyname</find>
+      <find>no</find>
+      <find>delete list</find>
+      <find>listD</find>
+      <find>first name</find>
+      <find>savelistinobject</find>
+      <find>overrightlistdata</find>
+      <find>checkboxget</find>
+      <find>refreshAfterSaveList</find>
+      <find>saveListInObject</find>
       <find>userstoredlist</find>
+      <find>create list</find>
+      <find>ul</find>
+      <find>listview</find>
+      <find>enter</find>
       <find>createListFromStoredDataList</find>
+      <find>isListFirstTime</find>
+      <find>listcheck</find>
+      <find>list al</find>
+      <find>listvie</find>
+      <find>isListSelected</find>
+      <find>createlist</find>
+      <find>savelistin</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,9 +108,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="447" />
-    <option name="y" value="49" />
-    <option name="width" value="1402" />
+    <option name="x" value="104" />
+    <option name="y" value="40" />
+    <option name="width" value="1598" />
     <option name="height" value="959" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -164,15 +167,16 @@
       <workItem from="1548470038784" duration="11736000" />
       <workItem from="1548492837589" duration="15806000" />
       <workItem from="1548542508652" duration="11207000" />
-      <workItem from="1548561074031" duration="19035000" />
+      <workItem from="1548561074031" duration="19429000" />
+      <workItem from="1548633423257" duration="29136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191803000" />
+    <option name="totallyTimeSpent" value="221333000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="447" y="49" width="1402" height="959" extended-state="0" />
+    <frame x="104" y="40" width="1598" height="959" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.094004445" />
@@ -224,13 +228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/todo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -238,10 +235,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="586" column="30" selection-start-line="586" selection-start-column="30" selection-end-line="586" selection-end-column="30" />
+        <state relative-caret-position="363">
+          <caret line="637" column="40" selection-start-line="637" selection-start-column="40" selection-end-line="637" selection-end-column="40" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#36#42#0" expanded="true" />
