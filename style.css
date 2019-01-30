@@ -8,8 +8,33 @@ body{
 .wrapper{
     display: grid;
     grid-template-columns: 150px 600px 150px;
-    grid-template-rows: 100px auto 100px;
+    grid-template-rows: 100px 50px auto 100px;
     background-color: #7eaebd;
+}
+#mb0{
+    display: block;
+
+    width: 100%;
+    //border: black solid 1px;
+    grid-column: 1/4;
+    background-color: #8da5a3;
+
+}
+.mo{
+    margin-left: 0;
+    border: deeppink;
+    background-color: #dfdada;
+}
+.m1{
+    display: inline;
+
+   // border: #140c47 solid 1px;
+    padding: 5px;
+    font-family: "Arial Black";
+    font-size: 16px;
+}
+#m101{
+    margin-left: 20px;
 }
 #b0{
     display: block;

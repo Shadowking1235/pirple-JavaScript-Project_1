@@ -90,6 +90,7 @@ function deletAll(e){
             console.log("all users data deleted");
             tempArrForUserDleteComand = [];
             window.document.removeEventListener("keypress", deletAll,true);
+            isListFirstTime = true;
         }else if (tempArrForUserDleteComand.length>5){
             tempArrForUserDleteComand = [];
             console.log("reset ");
@@ -560,6 +561,8 @@ function listView() {
 
     listArrayObject1 = getDataFromStorage(myUser);
 
+    console.log(listArrayObject1);
+
 }
 function removeItemFromList() {
     let removeTemp = document.getElementById("ul");
@@ -622,29 +625,47 @@ function createList(parentElement){
 
     let bothArray  = [lli.innerText,xx];
     listArrayInTwinPair.push(bothArray);
-}
 
+
+
+}
+//save list button call function
 function saveListInObject(){
         if (typeof listArrayObject1 === "undefined") {
-
+                    alert("listArrayObject1 type undefined");
         }
-        console.log("single list"+listArray1);
+        console.log("single list"+listArray1  + " true or false " + isListFirstTime);
 
         checkBoxGetStatus();
         refreshAfterSaveList();
      listD = 0;
         removeElement("newList");
         removeElement("saveList");
-        if (listArrayObject1 !== null && isListFirstTime === false ){
+         alert("listArrayObject1 !== null "+ listArrayObject1 !== null);
+         alert("isListFirstTime === false "+isListFirstTime === false);
+         alert("listArrayObject1.length "+ listArrayObject1.length);
+
+
+        if (listArrayObject1 !== null && isListFirstTime === false && listArrayObject1.length>0  ){
+
+            alert("ccc listArrayObject1 type undefined  "+listArrayObject1);
+
             removeElement("userStoredList");
-        }
+
+            setTimeout(createListFromStoredDataList, 500,listArrayObject1);
+
+            return
+
+        }else if (isListFirstTime === true) {
 
             isListFirstTime = false;
 
+            alert("ccc 111111    listArrayObject1 type undefined");
 
+            setTimeout(createListFromStoredDataList, 500, listArrayObject1);
+            alert("ccc   222222  listArrayObject1 type undefined");
 
-    setTimeout(createListFromStoredDataList, 500,listArrayObject1);
-
+        }
 }
 //object created for user having lists
 function ListObject(user,name,listArr) {
@@ -803,7 +824,9 @@ function populatedStoredListData(parantNodeId,arr,index,arrObj){
     }
 }
 function refreshAfterSaveList(){
+    alert("alert1");
     removeElement("ul");
+    alert("alert2");
     listCheck = 0;
 }
 function checkNameOfListExistInSavedRecord(dataList,givenName) {
