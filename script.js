@@ -31,6 +31,8 @@ let tempArrForUserDleteComand = [];
 let isListFirstTime = true;
 
 let listCheck = 0;
+let firstName;
+let lastName;
 //Create Main Page For To Do List
 function createRegistrationPage() {
     var cc = document.getElementById("b1");
@@ -416,10 +418,13 @@ function createDashBoardCheck(){
         alert('yes');
         var storedData = localStorage.getItem('FirstName');
         mainArray = JSON.parse(storedData);
+
         for(let i = 0;i<mainArray.length;i++){
             if (mainArray[i].userName === username && mainArray[i].password === userpassword){
                 alert("found user " + mainArray[i].userName + " "+username);
                 myUser = username;
+                firstName = mainArray[i].firstName;
+                lastName = mainArray[i].lastName;
                 removeElement("userLn");removeElement("userLnPass");
                 removeElement("btnToCheckUser");removeElement("logInUserName");
                 removeElement("logInUserNameLbl");
@@ -453,7 +458,7 @@ function createDashBoard(userN,fName,lName) {
     let dash = document.getElementById("dashboard");
     dash.innerHTML = "<span id='welcome'>"+"Welcome "+ fName +" "+ lName +"</span>";
     console.log("listArrayObject1 " + listArrayObject1);
-    if ( storedDataOfMyUser === null){
+    if ( storedDataOfMyUser === null ){
         alert("no list");
         //if no list then listArrayObject1 array should be initialized
         listArrayObject1 = [];
@@ -469,6 +474,7 @@ function createDashBoard(userN,fName,lName) {
         // create list from storedDataOfMyUser
         setTimeout(createListFromStoredDataList, 1000,storedDataOfMyUser);
         //createListFromStoredDataList(storedDataOfMyUser);
+        isListFirstTime = false;
     }
     addElement("b1","div","createList","box04","");
     let bb1 = document.getElementById("createList");
@@ -506,6 +512,7 @@ function deleteListByName() {
 
 }
 function goToMainPage() {
+    defaultSetting();
     location.reload();
 }
 function listView() {
@@ -551,6 +558,8 @@ function listView() {
     addListBtn.addEventListener("click",makeList);
 
     removeListBtn.addEventListener("click",removeItemFromList);
+
+
 
     let saveBtn = document.getElementById("saveTaskBtn");
     saveBtn.addEventListener("click",saveListInObject);
@@ -633,6 +642,8 @@ function createList(parentElement){
 function saveListInObject(){
         if (typeof listArrayObject1 === "undefined") {
                     alert("listArrayObject1 type undefined");
+            isListFirstTime = true;
+
         }
         console.log("single list"+listArray1  + " true or false " + isListFirstTime);
 
@@ -645,6 +656,8 @@ function saveListInObject(){
          alert("isListFirstTime === false "+isListFirstTime === false);
          alert("listArrayObject1.length "+ listArrayObject1.length);
 
+         console.log(" listArrayObject1 "+listArrayObject1);
+         console.log(" lsListFirstTime "+isListFirstTime);
 
         if (listArrayObject1 !== null && isListFirstTime === false && listArrayObject1.length>0  ){
 
@@ -654,9 +667,9 @@ function saveListInObject(){
 
             setTimeout(createListFromStoredDataList, 500,listArrayObject1);
 
-            return
+            return;
 
-        }else if (isListFirstTime === true) {
+        }else if (isListFirstTime === true &&  listArrayObject1.length>0) {
 
             isListFirstTime = false;
 
@@ -664,8 +677,9 @@ function saveListInObject(){
 
             setTimeout(createListFromStoredDataList, 500, listArrayObject1);
             alert("ccc   222222  listArrayObject1 type undefined");
-
+            return;
         }
+           return;
 }
 //object created for user having lists
 function ListObject(user,name,listArr) {
@@ -785,6 +799,8 @@ function createListFromStoredDataList(myStoredData){
             let tmpObject = myStoredData[i];
             populatedStoredListData("ul",pp,i,tmpObject);
         })
+        /*let dashnolist = document.getElementById("dashboardNoList");
+        dashnolist.innerText = "<span id='noList'>"+"You have following list and Options, "+ firstName +" "+ lastName +"</span>";*/
     }
 }
 //create function for populate stored data list selected
@@ -900,7 +916,32 @@ function makeTextLabelColorChanged(elementId,color) {
     let vv = document.getElementById(elementId);
     vv.style.color = color;
 }
+function defaultSetting(){
+    mainArray = [];
+//object elements in the array for all user having lists detail in attray in object as each element
+    listArray = [];
+    listArray1 = [];
+    listArrayInTwinPair = [];
+    listD = 0;
+    listCountId = 0;
+    checkCountId = 0;
+//lists of individual user in array
+    listArrayObject = [];
+//with twin member in object
+    listArrayObject1 = [];
+    myUser = null;
 
+    createListNum = 0;
+    isListSelected = false;
+
+    selectedList = null;
+    tempArrForUserDleteComand = [];
+    isListFirstTime = true;
+
+    listCheck = 0;
+    //let firstName;
+    //let lastName;
+}
 
 //final function run
 createRegistrationPage();
