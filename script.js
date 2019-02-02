@@ -101,10 +101,13 @@ function getUserAccounAccess( ){
     addElementAndItsChildEle("b1","div","userInputPsssDiv","box01","pass001",label2,"pasrd");
     let ttt = document.getElementById("pass001");
     ttt.setAttribute("type","password");
+
     addElement("b1","button","btn001","btn","");
     let tempbtn001 = document.getElementById("btn001");
     tempbtn001.innerText = "Press";
     tempbtn001.addEventListener("click",getInUserAccount);
+
+
 }
 function getInUserAccount() {
     let username = document.getElementById("userName001").value;
@@ -124,6 +127,7 @@ function getInUserAccount() {
                 addElementAndItsChildEle("b1","div","userInputDiv","box01","userName001","User Name","fstName");
                 let userTempInput = document.getElementById("userName001");
                 userTempInput.value = mainArray[i].userName;
+                userTempInput.disabled = true;
 
                 addElementAndItsChildEle("b1","div","userInputPsssDiv","box01","pass001","User Password","pasrd");
                 let userTempPassIn = document.getElementById("pass001");
@@ -141,7 +145,12 @@ function getInUserAccount() {
                 let tttt = document.getElementById("updateUser");
                 tttt.innerText = "Update";
 
-               // updateTT = new   SavingObject(userFirstName,userLastName,userTempInput,userTempPassIn);
+               // addElement("b1","div","divForClear","divClear","");
+                addElement("b1","button","btn002","btn","");
+                let tempbtn002 = document.getElementById("btn002");
+                tempbtn002.innerText = "Delete User";
+                tempbtn002.addEventListener("click",deleteUserAccount);
+
                 tttt.addEventListener("click",updateUserDetail);
                 return;
 
@@ -253,7 +262,22 @@ function updateUserDetail (){
     }
 
 }
-
+function deleteUserAccount(){
+    alert("Will Delete user account and related data permanently!!!");
+    let username = document.getElementById("userName001").value;
+    let userpassword = document.getElementById("pass001").value;
+    for (let i=0;i<mainArray.length;i++) {
+        if (mainArray[i].userName === username && mainArray[i].password === userpassword) {
+                mainArray.splice(i,1);
+                console.log(" user deleted " ,mainArray  );
+                localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+                localStorage.removeItem(username);
+                defaultSetting();
+                goToMainPage();
+                return;
+        }
+    }
+}
 function deletAll(e){
 
         console.log(e.key + " " + tempArrForUserDleteComand);

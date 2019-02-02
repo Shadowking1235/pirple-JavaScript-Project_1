@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="342" column="63" selection-start-line="342" selection-start-column="52" selection-end-line="342" selection-end-column="63" />
+            <state relative-caret-position="441">
+              <caret line="273" column="50" lean-forward="true" selection-start-line="273" selection-start-column="50" selection-end-line="273" selection-end-column="50" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#50#56#0" expanded="true" />
@@ -43,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
+            <state relative-caret-position="538">
+              <caret line="186" column="19" selection-start-line="186" selection-start-column="19" selection-end-line="186" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -62,15 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>saveListInObject</find>
-      <find>userstoredlist</find>
-      <find>ul</find>
-      <find>listview</find>
-      <find>enter</find>
-      <find>createListFromStoredDataList</find>
-      <find>listcheck</find>
-      <find>list al</find>
-      <find>listvie</find>
       <find>isListSelected</find>
       <find>createlist</find>
       <find>create list</find>
@@ -92,6 +83,15 @@
       <find>formsp1</find>
       <find>users</find>
       <find>user name (</find>
+      <find>account</find>
+      <find>m102</find>
+      <find>dashboardNoList</find>
+      <find>you have</find>
+      <find>listarrayob</find>
+      <find>listarrayobject1</find>
+      <find>createListFromStoredDataList</find>
+      <find>deleteallusersdatA</find>
+      <find>deleteallusersdata</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,14 +102,14 @@
       <list>
         <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$PROJECT_DIR$/todo.html" />
-        <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/script.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="139" />
-    <option name="y" value="84" />
+    <option name="x" value="332" />
+    <option name="y" value="15" />
     <option name="width" value="1426" />
     <option name="height" value="959" />
   </component>
@@ -175,15 +175,17 @@
       <workItem from="1549013760846" duration="299000" />
       <workItem from="1549014095293" duration="10106000" />
       <workItem from="1549064244635" duration="14918000" />
-      <workItem from="1549083960179" duration="11528000" />
+      <workItem from="1549083960179" duration="13873000" />
+      <workItem from="1549105229120" duration="2516000" />
+      <workItem from="1549145832594" duration="3379000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273253000" />
+    <option name="totallyTimeSpent" value="281493000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="139" y="84" width="1426" height="959" extended-state="0" />
+    <frame x="332" y="15" width="1426" height="959" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.094004445" />
@@ -244,8 +246,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="342" column="63" selection-start-line="342" selection-start-column="52" selection-end-line="342" selection-end-column="63" />
+        <state relative-caret-position="441">
+          <caret line="273" column="50" lean-forward="true" selection-start-line="273" selection-start-column="50" selection-end-line="273" selection-end-column="50" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#50#56#0" expanded="true" />
@@ -260,8 +262,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
+        <state relative-caret-position="538">
+          <caret line="186" column="19" selection-start-line="186" selection-start-column="19" selection-end-line="186" selection-end-column="19" />
         </state>
       </provider>
     </entry>
