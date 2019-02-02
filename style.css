@@ -127,7 +127,7 @@ h1{
     padding: 5PX;
     margin: 10px;
 }
-#fstName,#pasrd{
+#fstName,#pasrd,#firstname,#lastname{
     font-size: 21PX;
     color: #5a6ba5;
     padding: 5PX;
@@ -209,6 +209,7 @@ h1{
     position: relative;
     top: -5px;
 }
-#m102{
+#m102,#m101{
     cursor: pointer;
+    color: #dfdada;
 }

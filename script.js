@@ -33,6 +33,7 @@ let isListFirstTime = true;
 let listCheck = 0;
 let firstName;
 let lastName;
+
 //Create Main Page For To Do List
 function createRegistrationPage() {
     var cc = document.getElementById("b1");
@@ -77,6 +78,8 @@ function createRegistrationPage() {
    let userAccount = document.getElementById("m102");
    userAccount.addEventListener("click",getUserAccounAccess);
 
+    let main = document.getElementById("m101");
+    main.addEventListener("click",goToMainPage);
 }
 
 function getUserAccounAccess( ){
@@ -112,6 +115,7 @@ function getInUserAccount() {
         console.log(mainArray);
         for (let i=0;i<mainArray.length;i++){
             if (mainArray[i].userName === username && mainArray[i].password === userpassword){
+                myUser = mainArray[i].userName;
                 alert("got username and password");
                 removeElement("userInputDiv");
                 removeElement("userInputPsssDiv");
@@ -135,9 +139,11 @@ function getInUserAccount() {
                 addElement("b1","button","updateUser","box01","");
                 let tttt = document.getElementById("updateUser");
                 tttt.innerText = "Update";
-                tttt.addEventListener("click",updateUserDetail);
 
+               // updateTT = new   SavingObject(userFirstName,userLastName,userTempInput,userTempPassIn);
+                tttt.addEventListener("click",updateUserDetail);
                 return;
+
             }else{
 
             }
@@ -153,8 +159,98 @@ function getInUserAccount() {
     removeElement("userInputPsssDiv");
     removeElement("btn001");*/
 }
-function updateUserDetail{
-    
+function updateUserDetail (){
+    //check input here //////
+
+    ///////////////////////////
+    let userTempInput = document.getElementById("userName001");
+    let user = userTempInput.value;
+    let validEmail = validateEmail(user);
+    if (validEmail === false) {
+        let vv = document.getElementById('fstName');
+        vv.style.color = "red";
+        alert("require valid email");
+        console.log("Invalid email  " + validEmail);
+        return;
+    }
+    makeTextLabelColorChanged("fstName","#5a6ba5");
+
+    let userTempPassIn = document.getElementById("pass001");
+    let pass = userTempPassIn.value;
+    if(pass === ""  || pass === undefined ){
+        alert("field is blank");
+        //formSp2Label
+        makeTextLabelColorChanged("pasrd","red");
+        return;
+    }
+    if ( pass.length <=6){
+        alert("password Short");
+        makeTextLabelColorChanged("pasrd","red");
+        return;
+    }
+    makeTextLabelColorChanged("pasrd","#5a6ba5");
+
+
+
+    let userFirstName = document.getElementById("firstName");
+    let firstNa = userFirstName.value;
+    //firstname
+    if (firstNa === "" ){
+        alert("Give first name");
+        makeTextLabelColorChanged("firstname","red");
+        return;
+    }
+    makeTextLabelColorChanged("firstname","#5a6ba5");
+
+
+
+    let userLastName = document.getElementById("lastName");
+    let lastNa =  userLastName.value;
+    //
+    if (lastNa === "" ){
+        alert("Give last name");
+        makeTextLabelColorChanged("lastname","red");
+        return;
+    }
+    makeTextLabelColorChanged("lastname","#5a6ba5");
+
+    var tt = new   SavingObject(firstNa,lastNa,user,pass);
+    console.log("updateTT new update " + tt.userName);
+
+    //var storedData = localStorage.getItem('FirstName');
+    if("FirstName" in localStorage){
+        alert('yes data exist having key "FirstName" ');
+        var storedData = localStorage.getItem('FirstName');
+        mainArray = JSON.parse(storedData);
+        for (var i = 0;i<mainArray.length;i++){
+            if(mainArray.length === 0){
+                alert("no data");
+                return ;
+            }
+            if(mainArray[i].userName===myUser){
+                alert(myUser + " Duplicate user, user exist found");
+                mainArray.splice(i,1);
+                //return;
+            }
+        }
+        alert("oooooookk");
+        mainArray.push(tt);
+        console.log(mainArray);
+        localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+        defaultSetting();
+        goToMainPage();
+
+    } else {
+        alert('no data available with key "FirstName" ');
+        goToMainPage();
+        return;
+        /*mainArray.push(tt);
+        localStorage.setItem("FirstName",  JSON.stringify(mainArray));
+        //create new local storage
+        createStorageDataTemplate(myUser,listArrayObject1);
+        goToMainPage();*/
+    }
+
 }
 
 function deletAll(e){
@@ -398,7 +494,7 @@ function getValueS(){
 
     //var storedData = localStorage.getItem('FirstName');
     if("FirstName" in localStorage){
-        alert('yes');
+        alert('yes data exist having key "FirstName" ');
         var storedData = localStorage.getItem('FirstName');
         mainArray = JSON.parse(storedData);
         if (checkDuplicateUserName(mainArray,user) === false){
@@ -407,7 +503,7 @@ function getValueS(){
         mainArray.push(tt);
         localStorage.setItem("FirstName",  JSON.stringify(mainArray));
     } else {
-        alert('no');
+        alert('no data available with key "FirstName" ');
         mainArray.push(tt);
         localStorage.setItem("FirstName",  JSON.stringify(mainArray));
         //create new local storage
