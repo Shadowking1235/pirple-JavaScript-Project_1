@@ -22,11 +22,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
+            <state relative-caret-position="249">
+              <caret line="342" column="63" selection-start-line="342" selection-start-column="52" selection-end-line="342" selection-end-column="63" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#50#56#0" expanded="true" />
@@ -40,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="129" column="36" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
+            <state relative-caret-position="441">
+              <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -62,9 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>overrightlistdata</find>
-      <find>checkboxget</find>
-      <find>refreshAfterSaveList</find>
       <find>saveListInObject</find>
       <find>userstoredlist</find>
       <find>ul</find>
@@ -92,6 +89,9 @@
       <find>refre</find>
       <find>local</find>
       <find>goto</find>
+      <find>formsp1</find>
+      <find>users</find>
+      <find>user name (</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,8 +102,8 @@
       <list>
         <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$PROJECT_DIR$/todo.html" />
-        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/script.js" />
+        <option value="$PROJECT_DIR$/style.css" />
       </list>
     </option>
   </component>
@@ -175,12 +175,12 @@
       <workItem from="1549013760846" duration="299000" />
       <workItem from="1549014095293" duration="10106000" />
       <workItem from="1549064244635" duration="14918000" />
-      <workItem from="1549083960179" duration="9436000" />
+      <workItem from="1549083960179" duration="11528000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271161000" />
+    <option name="totallyTimeSpent" value="273253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="139" y="84" width="1426" height="959" extended-state="0" />
@@ -242,17 +242,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="129" column="36" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
+        <state relative-caret-position="249">
+          <caret line="342" column="63" selection-start-line="342" selection-start-column="52" selection-end-line="342" selection-end-column="63" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#50#56#0" expanded="true" />
@@ -262,6 +255,13 @@
             <element signature="e#38#44#0" expanded="true" />
             <element signature="e#44#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
         </state>
       </provider>
     </entry>

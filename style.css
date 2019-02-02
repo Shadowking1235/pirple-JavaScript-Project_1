@@ -104,6 +104,7 @@ h1{
     width: 300px;
     height: 35px;
     font-size: 23px;
+    text-align: center;
 }
 #userPassword,#exitToMain{
     width: 150px;
@@ -119,6 +120,7 @@ h1{
     font-size: 21px;
     color: brown;
     margin: 10px;
+    text-align: center;
 
 }
 #firstNameLabel,#formSp2Label,#logInUserName,#logInUserNameLbl,#fn,#ln{
@@ -126,6 +128,7 @@ h1{
     color: #5a6ba5;
     padding: 5PX;
     margin: 10px;
+
 }
 #fstName,#pasrd,#firstname,#lastname{
     font-size: 21PX;
@@ -136,7 +139,9 @@ h1{
 #userName001,#pass001{
     width: 160px;
     height: 25px;
-    margin: 5px;
+    //margin: 5px;
+    text-align: center;
+    margin: 15px 10px 10px 10px ;
 }
 #welcome{
     //background-color: black;

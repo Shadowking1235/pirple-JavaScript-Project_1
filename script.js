@@ -83,7 +83,8 @@ function createRegistrationPage() {
 }
 
 function getUserAccounAccess( ){
-    alert();
+    //alert();
+    window.document.removeEventListener("keypress", deletAll,true);
     let b1 = document.getElementById("b1");
     removeElement("b1");
 
