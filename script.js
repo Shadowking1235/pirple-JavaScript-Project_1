@@ -74,9 +74,89 @@ function createRegistrationPage() {
 
    window.document.addEventListener("keypress",deletAll,true);
 
-
+   let userAccount = document.getElementById("m102");
+   userAccount.addEventListener("click",getUserAccounAccess);
 
 }
+
+function getUserAccounAccess( ){
+    alert();
+    let b1 = document.getElementById("b1");
+    removeElement("b1");
+
+    let parentClassEle = document.getElementsByClassName("wrapper");
+    let creatb1 = document.createElement("div");
+    creatb1.setAttribute("id","b1");
+    parentClassEle[0].appendChild(creatb1);
+    //addElement("b1","div","div001","box");
+    let forUserName = document.getElementById("b1");
+    let label1 = "User Name ::";
+    let label2 = "Password ::";
+    //addElementAndItsChildEle("b1","div","divuser01","u01","inputbox1",label1,"lblUser1");
+    addElementAndItsChildEle("b1","div","userInputDiv","box01","userName001",label1,"fstName");
+    addElementAndItsChildEle("b1","div","userInputPsssDiv","box01","pass001",label2,"pasrd");
+    let ttt = document.getElementById("pass001");
+    ttt.setAttribute("type","password");
+    addElement("b1","button","btn001","btn","");
+    let tempbtn001 = document.getElementById("btn001");
+    tempbtn001.innerText = "Press";
+    tempbtn001.addEventListener("click",getInUserAccount);
+}
+function getInUserAccount() {
+    let username = document.getElementById("userName001").value;
+    let userpassword = document.getElementById("pass001").value;
+    if("FirstName" in localStorage) {
+        alert('yes we have data');
+        var storedData = localStorage.getItem('FirstName');
+        mainArray = JSON.parse(storedData);
+        console.log(mainArray);
+        for (let i=0;i<mainArray.length;i++){
+            if (mainArray[i].userName === username && mainArray[i].password === userpassword){
+                alert("got username and password");
+                removeElement("userInputDiv");
+                removeElement("userInputPsssDiv");
+                removeElement("btn001");
+                addElementAndItsChildEle("b1","div","userInputDiv","box01","userName001","User Name","fstName");
+                let userTempInput = document.getElementById("userName001");
+                userTempInput.value = mainArray[i].userName;
+
+                addElementAndItsChildEle("b1","div","userInputPsssDiv","box01","pass001","User Password","pasrd");
+                let userTempPassIn = document.getElementById("pass001");
+                userTempPassIn.value = mainArray[i].password;
+
+                addElementAndItsChildEle("b1","div","userInputFirstNameDiv","box01","firstName","First Name","firstname");
+                let userFirstName = document.getElementById("firstName");
+                userFirstName.value = mainArray[i].firstName;
+
+                addElementAndItsChildEle("b1","div","userInputLastNameDiv","box01","lastName","Last Name","lastname");
+                let userLastName = document.getElementById("lastName");
+                userLastName.value = mainArray[i].lastName;
+
+                addElement("b1","button","updateUser","box01","");
+                let tttt = document.getElementById("updateUser");
+                tttt.innerText = "Update";
+                tttt.addEventListener("click",updateUserDetail);
+
+                return;
+            }else{
+
+            }
+        }
+             alert("user not found");
+        
+    }else {
+        alert('user data not found ');
+    }
+
+    //////////////////////
+/*    removeElement("userInputDiv");
+    removeElement("userInputPsssDiv");
+    removeElement("btn001");*/
+}
+function updateUserDetail{
+    
+}
+
 function deletAll(e){
 
         console.log(e.key + " " + tempArrForUserDleteComand);
@@ -183,6 +263,23 @@ function createForm(parentElement){
 
     newd2.appendChild(pass);
 
+    //////////check box for agreement of terms and conditions ////////////
+    let newdCheck = document.createElement("div");
+    newdCheck.setAttribute("id","divCheck");
+    /*newdCheck.innerHTML = "<span id style=' formCheckLabel'>" + "I agree with Terms & condition"+
+        "</span>";*/
+    let chkAgre = document.createElement("input");
+    chkAgre.setAttribute("type","checkbox");
+    chkAgre.setAttribute("id","checkForAgreement");
+    //chkAgre.setAttribute("name","hjhjhjh");
+    //chkAgre.setAttribute("value","hjhjhjh");
+    newdCheck.appendChild(chkAgre);
+    let lblSpanChk = document.createElement("span");
+    lblSpanChk.setAttribute("id","lblSpanChk");
+    lblSpanChk.innerText = "I agree with Terms & condition";
+    newdCheck.appendChild(lblSpanChk);
+    /////////////////////////////////////////////////////////////////////
+
     var newd3 = document.createElement("div");
     newd3.setAttribute("id","div3");
 
@@ -200,7 +297,7 @@ function createForm(parentElement){
     newd3.appendChild(exit);
     exit.innerText = "Exit";
     f.appendChild(newd1);f.appendChild(newd2);f.appendChild(newd3);
-
+    f.appendChild(newdCheck);
     //f.appendChild(pass);
     //temp.appendChild(s);
     temp.appendChild(f);
@@ -234,6 +331,8 @@ function getValueS(){
 
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
+    var checkAgrmt = document.getElementById("checkForAgreement").checked;
+    //alert(checkAgrmt);
     //to reset data
     //////////////////////////
     if (firstName === "clear_key"){
@@ -273,19 +372,25 @@ function getValueS(){
 
 
     if(user === "" || getValueUserPass === "" || user === undefined || getValueUserPass === undefined){
-        alert("blank");
+        alert("field is blank");
         //formSp2Label
         makeTextLabelColorChanged("formSp2Label","red");
         return;
     }
     if (user.length<=3 || getValueUserPass.length <=6){
-        alert("Short");
+        alert("user name Short");
         makeTextLabelColorChanged("formSp2Label","red");
         return;
     }
     makeTextLabelColorChanged("formSp2Label","#5a6ba5");
 
 
+    if (checkAgrmt === false){
+        alert("Please Check Terms and Conditions!!!");
+        makeTextLabelColorChanged("lblSpanChk","red");
+        return;
+    }
+    makeTextLabelColorChanged("lblSpanChk","#ffb64e");
 
     alert(getValueUser + " " + getValueUserPass + " "+firstName +" "+lastName);
 

@@ -127,6 +127,17 @@ h1{
     padding: 5PX;
     margin: 10px;
 }
+#fstName,#pasrd{
+    font-size: 21PX;
+    color: #5a6ba5;
+    padding: 5PX;
+    margin: 10px;
+}
+#userName001,#pass001{
+    width: 160px;
+    height: 25px;
+    margin: 5px;
+}
 #welcome{
     //background-color: black;
     //width: 500px;
@@ -156,7 +167,7 @@ h1{
     padding: 10px;
     margin-top: 10px;
 }
-#createlistbtn,#addTaskBtn,#removeTaskBtn,#saveTaskBtn,#createlistbtnForExit,#createlistbtnForExit1{
+#createlistbtn,#addTaskBtn,#removeTaskBtn,#saveTaskBtn,#createlistbtnForExit,#createlistbtnForExit1,#btn001,#updateUser{
     margin: 10px;
     width: 150px;
     height: 35px;
@@ -184,4 +195,20 @@ h1{
     font-size: 21px;
     font-weight: 900;
     color: deeppink;
+}
+#checkForAgreement{
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+}
+#lblSpanChk{
+    color: #ffb64e;
+    font-size: 21px;
+    margin-left: 10px;
+    margin-top: 0px;
+    position: relative;
+    top: -5px;
+}
+#m102{
+    cursor: pointer;
 }
