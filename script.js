@@ -113,14 +113,14 @@ function getInUserAccount() {
     let username = document.getElementById("userName001").value;
     let userpassword = document.getElementById("pass001").value;
     if("FirstName" in localStorage) {
-        alert('yes we have data');
+        // alert('yes we have data');
         var storedData = localStorage.getItem('FirstName');
         mainArray = JSON.parse(storedData);
         console.log(mainArray);
         for (let i=0;i<mainArray.length;i++){
             if (mainArray[i].userName === username && mainArray[i].password === userpassword){
                 myUser = mainArray[i].userName;
-                alert("got username and password");
+                // alert("got username and password");
                 removeElement("userInputDiv");
                 removeElement("userInputPsssDiv");
                 removeElement("btn001");
@@ -194,7 +194,7 @@ function updateUserDetail (){
         return;
     }
     if ( pass.length <=6){
-        alert("password Short");
+        alert("password is Short");
         makeTextLabelColorChanged("pasrd","red");
         return;
     }
@@ -229,21 +229,21 @@ function updateUserDetail (){
 
     //var storedData = localStorage.getItem('FirstName');
     if("FirstName" in localStorage){
-        alert('yes data exist having key "FirstName" ');
+        //alert('yes data exist having key "FirstName" ');
         var storedData = localStorage.getItem('FirstName');
         mainArray = JSON.parse(storedData);
         for (var i = 0;i<mainArray.length;i++){
             if(mainArray.length === 0){
-                alert("no data");
+                alert("no data found!!");
                 return ;
             }
             if(mainArray[i].userName===myUser){
-                alert(myUser + " Duplicate user, user exist found");
+                //alert(myUser + " Duplicate user, user exist found");
                 mainArray.splice(i,1);
                 //return;
             }
         }
-        alert("oooooookk");
+        //alert("oooooookk");
         mainArray.push(tt);
         console.log(mainArray);
         localStorage.setItem("FirstName",  JSON.stringify(mainArray));
@@ -251,7 +251,7 @@ function updateUserDetail (){
         goToMainPage();
 
     } else {
-        alert('no data available with key "FirstName" ');
+        //alert('no data available with key "FirstName" ');
         goToMainPage();
         return;
         /*mainArray.push(tt);
@@ -513,13 +513,13 @@ function getValueS(){
     }
     makeTextLabelColorChanged("lblSpanChk","#ffb64e");
 
-    alert(getValueUser + " " + getValueUserPass + " "+firstName +" "+lastName);
+    //alert(getValueUser + " " + getValueUserPass + " "+firstName +" "+lastName);
 
     var tt = new   SavingObject(firstName,lastName,user,userPass);
 
     //var storedData = localStorage.getItem('FirstName');
     if("FirstName" in localStorage){
-        alert('yes data exist having key "FirstName" ');
+        //alert('yes data exist having key "FirstName" ');
         var storedData = localStorage.getItem('FirstName');
         mainArray = JSON.parse(storedData);
         if (checkDuplicateUserName(mainArray,user) === false){
@@ -528,7 +528,7 @@ function getValueS(){
         mainArray.push(tt);
         localStorage.setItem("FirstName",  JSON.stringify(mainArray));
     } else {
-        alert('no data available with key "FirstName" ');
+        //alert('no data available with key "FirstName" ');
         mainArray.push(tt);
         localStorage.setItem("FirstName",  JSON.stringify(mainArray));
         //create new local storage
@@ -641,13 +641,13 @@ function createDashBoardCheck(){
     let username = document.getElementById("userLn").value;
     let userpassword = document.getElementById("userLnPass").value;
     if("FirstName" in localStorage){
-        alert('yes');
+        //alert('yes');
         var storedData = localStorage.getItem('FirstName');
         mainArray = JSON.parse(storedData);
 
         for(let i = 0;i<mainArray.length;i++){
             if (mainArray[i].userName === username && mainArray[i].password === userpassword){
-                alert("found user " + mainArray[i].userName + " "+username);
+                //alert("found user " + mainArray[i].userName + " "+username);
                 myUser = username;
                 firstName = mainArray[i].firstName;
                 lastName = mainArray[i].lastName;
@@ -668,7 +668,7 @@ function createDashBoardCheck(){
         //mainArray.push(tt);
         //localStorage.setItem("FirstName",  JSON.stringify(mainArray));
     } else {
-        alert('no ');
+        alert('no failed ');
         // mainArray.push(tt);
         //localStorage.setItem("FirstName",  JSON.stringify(mainArray));
     }
@@ -684,15 +684,17 @@ function createDashBoard(userN,fName,lName) {
     let dash = document.getElementById("dashboard");
     dash.innerHTML = "<span id='welcome'>"+"Welcome "+ fName +" "+ lName +"</span>";
     console.log("listArrayObject1 " + listArrayObject1);
-    if ( storedDataOfMyUser === null ){
-        alert("no list");
+    if ( storedDataOfMyUser === null ||  listArrayObject1.length === 0 ){
+        //alert( "isListFirstTime  1"  +  isListFirstTime  + " local listArrayObject1 " + listArrayObject1.length);
+        //alert("no list");
         //if no list then listArrayObject1 array should be initialized
         listArrayObject1 = [];
         addElement("b1","div","dashboardNoList","box03","");
         let dashnolist = document.getElementById("dashboardNoList");
         dashnolist.innerHTML = "<span id='noList'>"+"You Don`t have list, "+ fName +" "+ lName +"</span>";
     }else{
-        alert("u have list");
+        //alert("u have list");
+        // alert( "isListFirstTime  2"  +  isListFirstTime  + " local listArrayObject1 " + listArrayObject1.length);
         addElement("b1","div","dashboardNoList","box03","");
         let dashnolist = document.getElementById("dashboardNoList");
         dashnolist.innerHTML = "<span id='noList'>"+"You have following list and Options, "+ fName +" "+ lName +"</span>";
@@ -744,7 +746,7 @@ function goToMainPage() {
 function listView() {
     //alert();
     if (listD===1){
-        alert("you want to refresh! Data may loss if not saved?");
+        alert("you want to refresh, Save list data! Data may loss if not saved?");
         removeElement("newList");
         removeElement("saveList");
         listCheck = 0;
@@ -867,7 +869,7 @@ function createList(parentElement){
 //save list button call function
 function saveListInObject(){
         if (typeof listArrayObject1 === "undefined") {
-                    alert("listArrayObject1 type undefined");
+                    //alert("listArrayObject1 type undefined");
             isListFirstTime = true;
 
         }
@@ -878,16 +880,16 @@ function saveListInObject(){
      listD = 0;
         removeElement("newList");
         removeElement("saveList");
-         alert("listArrayObject1 !== null "+ listArrayObject1 !== null);
-         alert("isListFirstTime === false "+isListFirstTime === false);
-         alert("listArrayObject1.length "+ listArrayObject1.length);
+         //alert("listArrayObject1 !== null "+ listArrayObject1 !== null);
+         //alert("isListFirstTime === false "+isListFirstTime === false);
+         //alert("listArrayObject1.length "+ listArrayObject1.length);
 
          console.log(" listArrayObject1 "+listArrayObject1);
          console.log(" lsListFirstTime "+isListFirstTime);
 
         if (listArrayObject1 !== null && isListFirstTime === false && listArrayObject1.length>0  ){
 
-            alert("ccc listArrayObject1 type undefined  "+listArrayObject1);
+            //alert("ccc listArrayObject1 type undefined  "+listArrayObject1);
 
             removeElement("userStoredList");
 
@@ -899,10 +901,10 @@ function saveListInObject(){
 
             isListFirstTime = false;
 
-            alert("ccc 111111    listArrayObject1 type undefined");
+            //alert("ccc 111111    listArrayObject1 type undefined");
 
             setTimeout(createListFromStoredDataList, 500, listArrayObject1);
-            alert("ccc   222222  listArrayObject1 type undefined");
+            //alert("ccc   222222  listArrayObject1 type undefined");
             return;
         }
            return;
@@ -1011,6 +1013,13 @@ function createListFromStoredDataList(myStoredData){
     let dashDiv  = document.getElementById("userStoredList");
     let newUl = document.createElement("ul");
     dashDiv.appendChild(newUl);
+    if (myStoredData.length>0){
+        let dashnolist = document.getElementById("dashboardNoList");
+        dashnolist.innerHTML = "<span id='noList'>" + "You have following list and Options, " + firstName +" "+ lastName + "</span>";
+    }else {
+        let dashnolist = document.getElementById("dashboardNoList");
+        dashnolist.innerHTML = "<span id='noList'>" + "You have No list But Options, " + firstName +" "+ lastName + "</span>";
+    }
     for (let i=0;i<myStoredData.length;i++){
         let newList = document.createElement("li");
         newList.setAttribute("class","storedList");
@@ -1066,9 +1075,9 @@ function populatedStoredListData(parantNodeId,arr,index,arrObj){
     }
 }
 function refreshAfterSaveList(){
-    alert("alert1");
+    //alert("alert1");
     removeElement("ul");
-    alert("alert2");
+    //alert("alert2");
     listCheck = 0;
 }
 function checkNameOfListExistInSavedRecord(dataList,givenName) {
@@ -1077,7 +1086,7 @@ function checkNameOfListExistInSavedRecord(dataList,givenName) {
     for (let k=0;k<dataList.length;k++){
         if (givenName === dataList[k].name) {
             console.log(" name is in list "+givenName);
-            alert(" name is in list "+givenName);
+            //alert(" name is in list "+givenName);
             return true
         }
     }
@@ -1089,13 +1098,14 @@ function removeListByName(dataList,givenNameOfList){
     for (let k=0;k<dataList.length;k++){
         if (givenNameOfList === dataList[k].name) {
             console.log(" name is in list "+givenNameOfList);
-            alert(" name is in list "+givenNameOfList);
+            //alert(" name is in list "+givenNameOfList);
             //dataList.remove(k);
             dataList.splice(k, 1);
             updateLocalStorageData(myUser,dataList);
-            alert("stored");
+            //alert("stored");
             removeElement("userStoredList");
             setTimeout(createListFromStoredDataList, 500,dataList);
+
             return;
         }
         if (dataList[k].name === null){
@@ -1120,13 +1130,13 @@ function overRightListData(datalist,givenNameOfList){
     for (let k=0; k < datalist.length;k++) {
         if (givenNameOfList === datalist[k].name) {
             console.log(" name is in list " + givenNameOfList);
-            alert(" name is in list " + givenNameOfList);
+            //alert(" name is in list " + givenNameOfList);
             //dataList.remove(k);
             datalist.splice(k,1);
             //dataList.splice(k, 1);
 
             listArrayObject1   = datalist;
-            alert("stored");
+            //alert("stored");
             return;
             /*updateLocalStorageData(myUser,dataList);
             alert("stored");

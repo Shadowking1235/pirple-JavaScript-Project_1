@@ -22,11 +22,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="273" column="50" lean-forward="true" selection-start-line="273" selection-start-column="50" selection-end-line="273" selection-end-column="50" />
+            <state relative-caret-position="249">
+              <caret line="163" column="13" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#50#56#0" expanded="true" />
@@ -40,10 +40,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
+            <state relative-caret-position="4464">
               <caret line="186" column="19" selection-start-line="186" selection-start-column="19" selection-end-line="186" selection-end-column="19" />
             </state>
           </provider>
@@ -62,17 +62,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isListSelected</find>
-      <find>createlist</find>
-      <find>create list</find>
-      <find>getDataFromStorage</find>
-      <find>isListFirstTime</find>
-      <find>You have follo</find>
-      <find>createdashboard</find>
       <find>true</find>
       <find>savelistin</find>
       <find>sign</find>
-      <find>log in</find>
       <find>createloginuseranspassforda</find>
       <find>localstorage</find>
       <find>checkdu</find>
@@ -86,12 +78,20 @@
       <find>account</find>
       <find>m102</find>
       <find>dashboardNoList</find>
-      <find>you have</find>
       <find>listarrayob</find>
       <find>listarrayobject1</find>
-      <find>createListFromStoredDataList</find>
       <find>deleteallusersdatA</find>
       <find>deleteallusersdata</find>
+      <find>you do</find>
+      <find>you have</find>
+      <find>createLogInUserAnsPassForDashBoard</find>
+      <find>log in</find>
+      <find>enter</find>
+      <find>createListFromStoredDataList</find>
+      <find>createdashboard</find>
+      <find>createlistfromstoreddatalist</find>
+      <find>delete list</find>
+      <find>alert</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,12 +177,14 @@
       <workItem from="1549064244635" duration="14918000" />
       <workItem from="1549083960179" duration="13873000" />
       <workItem from="1549105229120" duration="2516000" />
-      <workItem from="1549145832594" duration="3379000" />
+      <workItem from="1549145832594" duration="4214000" />
+      <workItem from="1549151912484" duration="1256000" />
+      <workItem from="1549156632405" duration="5493000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281493000" />
+    <option name="totallyTimeSpent" value="289077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="332" y="15" width="1426" height="959" extended-state="0" />
@@ -237,6 +239,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4464">
+          <caret line="186" column="19" selection-start-line="186" selection-start-column="19" selection-end-line="186" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/todo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
@@ -246,8 +255,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="273" column="50" lean-forward="true" selection-start-line="273" selection-start-column="50" selection-end-line="273" selection-end-column="50" />
+        <state relative-caret-position="249">
+          <caret line="163" column="13" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#50#56#0" expanded="true" />
@@ -257,13 +266,6 @@
             <element signature="e#38#44#0" expanded="true" />
             <element signature="e#44#50#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="186" column="19" selection-start-line="186" selection-start-column="19" selection-end-line="186" selection-end-column="19" />
         </state>
       </provider>
     </entry>
